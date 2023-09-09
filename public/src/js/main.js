@@ -35,9 +35,6 @@ let homeSwiper = new Swiper(".swiper-home", {
 /*############### DARK AND LIGHT MODE ###############*/
 
 
-/*############### CART MENU ###############*/
-
-
 /*############### SCROLL REVEAL ANIMATION ###############*/
 const sr = ScrollReveal({
     origin: 'top',

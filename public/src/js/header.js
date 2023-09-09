@@ -84,3 +84,20 @@ const linkAction = () => {
     navMenu.classList.remove("show-menu");
 }
 navLink.forEach(n => n.addEventListener("click", linkAction));
+
+/*############### CART MENU ###############*/
+const cartMenu = document.getElementById("cart-menu"),
+      cartToggle = document.getElementById("cart-button"),
+      cartClose = document.getElementById("cart-close")
+
+if(cartToggle) {
+    cartToggle.addEventListener("click", () => {
+        cartMenu.classList.add("show-cart");
+    })
+}
+
+if(cartClose) {
+    cartClose.addEventListener("click", () => {
+        cartMenu.classList.remove("show-cart");
+    })
+}
