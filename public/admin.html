@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="" type="image/x-icon">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="./src/css/index.css">
+    <link rel="stylesheet" href="./src/css/admin.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <!--############### HEADER ###############-->
+    <header class="header" id="header"></header>
+
+    <!--############### SIGN UP ###############-->
+    <section class="section admin">
+        <div class="form__container container">
+            <div class="form">
+                <h4 class="form__title">Sign Up</h4>
+
+                <div class="form__inputs">
+                    <input type="text" placeholder="Enter Your Name" autocomplete="off" id="name">
+
+                    <input type="email" placeholder="Enter Your email" autocomplete="off" id="email">
+
+                    <input type="password" placeholder="Enter Your password" autocomplete="off" id="password">
+
+                    <input type="number" placeholder="Enter Your Number" autocomplete="off" id="number">
+                </div>
+
+                <span class="form__error">🤷‍♂️This is an error!</span>
+
+                <div class="form__checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <label for="checkbox">
+                        Your agree to our 
+                        <a href="#">terms and conditions</a>
+                    </label>
+                </div>
+
+                <button class="submit__button button">Sign Up</button>
+
+                <span class="login__link">Already have an account?<a href="/login">Login here</a></span>
+            </div>
+        </div>
+    </section>
+
+    <!--############### FOOTER ###############-->
+    <footer class="footer section"></footer>
+
+    <!--############### MAIN JS ###############-->
+    <script src="./src/js/main.js"></script>
+    <script src="./src/js/header.js"></script>
+    <script src="./src/js/footer.js"></script>
+    <script src="./src/js/common.js"></script>
+    <script src="./src/js/form.js"></script>
+</body>
+
+</html>

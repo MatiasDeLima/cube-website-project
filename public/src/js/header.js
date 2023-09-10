@@ -44,9 +44,12 @@ const createHeader = () => {
                     <i class="ri-menu-line"></i>
                 </div>
 
-                <div class="nav__user" id="nav-user">
-                    <div>
-                        <i class="ri-user-3-line"></i>
+                <div class="nav__user" id="nav-user">            
+                    <i class="ri-user-3-line"></i>
+
+                    <div class="nav__user-popup">
+                        <p>Login to your account</p>
+                        <a>Login</a>
                     </div>
                 </div>
             </div>
@@ -100,4 +103,30 @@ if(cartClose) {
     cartClose.addEventListener("click", () => {
         cartMenu.classList.remove("show-cart");
     })
+}
+
+/*############### USER POPUP ###############*/
+const userButton = document.getElementById("nav-user");
+const userPopup = document.querySelector(".nav__user-popup");
+
+userButton.addEventListener("click", () => userPopup.classList.toggle('show-popup'));
+
+// user login backend data in frontend
+let text = userPopup.querySelector('p');
+let actionButton = userPopup.querySelector('a');
+let user = JSON.parse(sessionStorage.user || null);
+
+if(user != null) {
+    text.innerHTML = `Log in as, ${user.name}`;
+    actionButton.innerHTML = 'Log Out';
+    actionButton.addEventListener("click", () => logout());
+} else {
+    text.innerHTML = 'Login to your account';
+    actionButton.innerHTML = 'Sign In';
+    actionButton.addEventListener("click", () => location.href = '/login');
+}
+
+const logout = () => {
+    sessionStorage.clear();
+    location.reload();
 }
