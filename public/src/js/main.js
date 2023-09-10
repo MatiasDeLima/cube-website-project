@@ -8,7 +8,7 @@ const scrollHeader = () => {
 
 window.addEventListener("scroll", scrollHeader);
 
-/*############### NEW SWIPER ###############*/
+/*############### HOME SWIPER ###############*/
 let homeSwiper = new Swiper(".swiper-home", {
     centeredSlides: true,
     slidesPerView: "auto",
@@ -36,7 +36,7 @@ let homeSwiper = new Swiper(".swiper-home", {
 
 
 /*############### SCROLL REVEAL ANIMATION ###############*/
-const sr = ScrollReveal({
+/*const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
     duration: 2500,
@@ -47,4 +47,4 @@ const sr = ScrollReveal({
 sr.reveal(`.home-swiper, .new-swiper, .newsletter__container`)
 sr.reveal(`.category__data, .trick__content, .footer__content`, { interval: 100 })
 sr.reveal(`.about__data, .discount__img`, { origin: 'left' })
-sr.reveal(`.about__img, .discount__data`, { origin: 'right' })
+sr.reveal(`.about__img, .discount__data`, { origin: 'right' })*/

@@ -3,7 +3,7 @@ const createHeader = () => {
 
     header.innerHTML = `
         <nav class="nav container">
-            <a href="#" class="nav__logo">
+            <a href="/" class="nav__logo">
                 <img src="./src/assets/images/logo-image.svg">
             </a>
 

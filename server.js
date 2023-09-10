@@ -125,6 +125,10 @@ app.get("/404", (req, res) => {
     res.sendFile("404.html", { root : "public" });
 })
 
+app.use((req, res) => {
+    res.redirect('/404');
+})
+
 app.listen(port, () => {
     console.log(`Server litening on port: ${port}`);
 });

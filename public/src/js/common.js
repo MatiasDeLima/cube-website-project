@@ -1,7 +1,7 @@
 
 // send data to backend
 const sendData = (path, data) => {
-    //console.log(data);
+    //console.log(data); // dados no front
     fetch(path, {
         method: 'POST',
         headers: new Headers({ 'Content-Type' : 'application/json' }),
@@ -11,8 +11,9 @@ const sendData = (path, data) => {
     .then(data => processData(data));
 };
 
+// dados vindo do backend
 const processData = (data) => {
-    console.log(data); // os dados atuais
+    console.log(data); // dados atuais do backend
     // backend alerts
     if(data.alert) {
         showFormError(data.alert);

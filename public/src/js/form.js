@@ -13,11 +13,11 @@ const formButton = document.querySelector(".submit__button");
 // form validation
 formButton.addEventListener("click", () => {
 
-    const username = document.querySelector("#name") || null;
-    const email = document.querySelector("#email");
-    const password = document.querySelector("#password");
-    const number = document.querySelector("#number") || null;
-    const checkbox = document.querySelector("#checkbox") || null;
+    let username = document.querySelector("#name") || null;
+    let email = document.querySelector("#email");
+    let password = document.querySelector("#password");
+    let number = document.querySelector("#number") || null;
+    let checkbox = document.querySelector("#checkbox") || null;
 
     // sign up page
     if (username != null) {
