@@ -1,0 +1,1 @@
+![Cube Website](/cube-preview.png)
