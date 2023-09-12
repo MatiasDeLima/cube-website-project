@@ -16,6 +16,7 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="./src/css/index.css">
+    <link rel="stylesheet" href="./src/css/form.css">
     <link rel="stylesheet" href="./src/css/admin.css">
 
     <title>Document</title>
@@ -29,31 +30,20 @@
     <section class="section admin">
         <div class="form__container container">
             <div class="form">
-                <h4 class="form__title">Sign Up</h4>
+                <h4 class="form__title">Admin Form</h4>
 
                 <div class="form__inputs">
-                    <input type="text" placeholder="Enter Your Name" autocomplete="off" id="name">
+                    <input type="text" placeholder="User admin" autocomplete="off" id="admin-user">
 
-                    <input type="email" placeholder="Enter Your email" autocomplete="off" id="email">
+                    <input type="password" placeholder="Admin password" autocomplete="off" id="admin-password">
 
-                    <input type="password" placeholder="Enter Your password" autocomplete="off" id="password">
 
-                    <input type="number" placeholder="Enter Your Number" autocomplete="off" id="number">
+                    <input type="number" placeholder="Enter Your code" autocomplete="off" id="admin-code">
                 </div>
 
                 <span class="form__error">🤷‍♂️This is an error!</span>
 
-                <div class="form__checkbox">
-                    <input type="checkbox" id="checkbox">
-                    <label for="checkbox">
-                        Your agree to our
-                        <a href="#">terms and conditions</a>
-                    </label>
-                </div>
-
-                <button class="submit__button button">Sign Up</button>
-
-                <span class="login__link">Already have an account?<a href="/login">Login here</a></span>
+                <button class="admin-button button">Sign Up</button>
             </div>
         </div>
     </section>
@@ -61,15 +51,12 @@
     <!--############### FOOTER ###############-->
     <footer class="footer section"></footer>
 
-    <!--############### SWIPER JS ###############-->
-    <script src="./src/js/libs/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.js"></script>
-
     <!--############### MAIN JS ###############-->
     <script src="./src/js/main.js"></script>
     <script src="./src/js/header.js"></script>
     <script src="./src/js/footer.js"></script>
     <script src="./src/js/common.js"></script>
-    <script src="./src/js/form.js"></script>
+    <script src="./src/js/admin.js"></script>
 </body>
 
 </html>

@@ -120,6 +120,38 @@ app.get('/admin', (req, res) => {
     res.sendFile("admin.html", { root : "public" });
 })
 
+app.post('/admin', (req, res) => {
+    let { adminuser, adminpassword, admincode, email} = req.body;
+
+    if(adminuser.lenght < 3 || !adminpassword.length || !Number(admincode) || admincode.length < 10) {
+        //alert("enter all filds")
+        return res.json({ 'alert' : '🤷‍♂️ Please enter all filds!' });
+    } else  {
+        // update the admin status
+        const sellers = collection(db, "sellers");
+        setDoc(doc(sellers, email), req.body)
+        .then(data => {
+            const users = collection(db, "users");
+            updateDoc(doc(users, email), {
+                seller: true
+            })
+            .then(data => {
+                res.json({ 'seller' : true });
+            })
+        })        
+    }
+})
+
+// dashboard page
+app.get('/dashboard', (req, res) => {
+    res.sendFile('dashboard.html', { root : 'public' });
+})
+
+// add product page
+app.get('/add-product', (req, res) => {
+    res.sendFile("add-product.html", { root : "public" });
+})
+
 // 404 page router
 app.get("/404", (req, res) => {
     res.sendFile("404.html", { root : "public" });

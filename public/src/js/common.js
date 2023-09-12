@@ -21,6 +21,11 @@ const processData = (data) => {
     } else if (data.name) {
         sessionStorage.user = JSON.stringify(data);
         location.replace('/');
+    } else if (data.seller) {
+        let user = JSON.parse(sessionStorage.user);
+        user.seller = true;
+        sessionStorage.user = JSON.stringify(user);
+        location.replace('/dashboard');
     }
 };
 
