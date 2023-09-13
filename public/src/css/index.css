@@ -1,34 +1,34 @@
 /*############### GOOGLE FONTS ###############*/
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap");
 
-@import url('./footer.css');
-@import url('./header.css');
+@import url("./footer.css");
+@import url("./header.css");
 
 /*############### VARIABLES CSS ###############*/
 :root {
   --header-height: 3.5rem;
 
   /*########## Colors ##########*/
-  --first-color: #FFD585;
+  --first-color: #ffd585;
   --first-color-alt: ;
-  --text-color: #BBBCBD;
+  --text-color: #bbbcbd;
   --text-color-light: #606269;
-  --text-color-dark: #1F2025;
-  --body-color: #1F2025;
+  --text-color-dark: #1f2025;
+  --body-color: #1f2025;
   --white-color: #fff;
   --container-color: #282832;
-  --border-color: #42444D;
-  --red-color: #FF4E4E;
-  --green-color: #02A86A;
+  --border-color: #42444d;
+  --red-color: #ff4e4e;
+  --green-color: #02a86a;
   --bg-glass-color: hsla(240, 11%, 18%, 50%);
 
   /*########## Font and typography ##########*/
-  --body-font: 'Mulish', sans-serif;
-  --second-font: 'Bigilla';
+  --body-font: "Mulish", sans-serif;
+  --second-font: "Bigilla";
   --biggest-font-size: 3rem;
   --h1-font-size: 2rem;
   --h2-font-size: 1.5rem;
-  --h3-font-size: 1.24rem;
+  --h3-font-size: 1.25rem;
   --normal-font-size: 0.875rem;
   --small-font-size: 0.75rem;
   --smaller-font-size: 0.625rem;
@@ -115,9 +115,20 @@ button {
 }
 
 .section__title {
-  font-size: var(--h2-font-size);
-  margin-bottom: var(--mb-2);
-  text-align: center;
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  color: var(--first-color);
+}
+
+.section__title span {
+  margin-bottom: .25rem;
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+}
+
+.section__title img {
+  width: 24px;
 }
 
 /*############### LAYOUT ###############*/
@@ -155,7 +166,7 @@ button {
 .home__info-title {
   font-family: var(--second-font);
   font-size: var(--h3-font-size);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   color: var(--first-color);
 }
 
@@ -242,7 +253,7 @@ button {
 
 .home__decoration-1 {
   width: 2.5rem;
-  top: -.5rem;
+  top: -0.5rem;
   left: -1.6rem;
 }
 
@@ -265,7 +276,7 @@ button {
 }
 
 .swiper-button-next::after {
-  content: '';
+  content: "";
 }
 
 .swiper-button-next {
@@ -301,7 +312,7 @@ button {
   z-index: 101;
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
-  transition: right .4s;
+  transition: right 0.4s;
 }
 
 .cart__close {
@@ -320,30 +331,24 @@ button {
 /*############### BUTTONS ###############*/
 .button {
   display: inline-block;
-  padding: .75rem 2rem;
+  padding: 0.75rem 2rem;
   color: var(--body-color);
   font-weight: var(--font-bold);
   background-color: var(--first-color);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 /*############### CATEGORY ###############*/
 
-
 /*############### ABOUT ###############*/
-
 
 /*############### TRICK OR TREAT ###############*/
 
-
 /*############### DISCOUNT ###############*/
-
 
 /*############### NEW ARRIVALS ###############*/
 
-
 /*############### NEWSLETTER ###############*/
-
 
 /*############### SCROLL UP ###############*/
 .scrollup {
