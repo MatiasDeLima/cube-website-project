@@ -21,10 +21,14 @@ const processData = (data) => {
     } else if (data.name) {
         sessionStorage.user = JSON.stringify(data);
         location.replace('/');
+    // admin form
     } else if (data.seller) {
         let user = JSON.parse(sessionStorage.user);
         user.seller = true;
         sessionStorage.user = JSON.stringify(user);
+        location.replace('/dashboard');
+    // add products
+    } else if(data.product) {
         location.replace('/dashboard');
     }
 };

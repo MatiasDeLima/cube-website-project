@@ -12,24 +12,97 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="./src/css/index.css">
-    <link rel="stylesheet" href="./src/css/add-product.css">
+    <link rel="stylesheet" href=".././src/css/index.css">
+    <link rel="stylesheet" href=".././src/css/product.css">
+    <link rel="stylesheet" href=".././src/css/form.css">
+    <link rel="stylesheet" href=".././src/css/add-product.css">
+    
 
     <title>Document</title>
 </head>
 
 <body>
-    <!--############### DASHBOARD ###############-->
-    <section class="add-product">
-        <div class="add-product__container container">
+    <!--############### MAIN ###############-->
+    <main class="main">
+        <!--############### PRODUCT ###############-->
+        <section class="section product container">
+            <h2 class="section__title section__title-center ">
+                <span>Add product<img src="./src/assets/images/line.svg"></span>
+            </h2>
 
-        </div>
-    </section>
+            <div class="error form__error">
+                <p>Some error occured</p>
+            </div>
+
+            <div class="product__container grid">
+                <!-- upload image section -->
+                <div class="product__image upload__content">
+                    <input type="file" id="upload-image" accept="image/png, image/jpeg" hidden>
+                    <label for="upload-image" class="upload-orverlay"><span><i class="ri-upload-cloud-line"></i></span>Upload image</label>
+                    <img class="product-image">
+                </div>
+
+                <div class="product__info">
+                    <div class="product__info-top">
+                        <div class="info__top-data">
+                            <h3 class="product__info-title" contenteditable="true" data-placeholder="enter a product name">
+                                Ethereal Nightfall
+                            </h3>
+
+                            <p class="product__info-category" contenteditable="true" data-placeholder="enter a product categorie">
+                                Wlop art collection
+                            </p>
+                        </div>
+
+                        <div class="product__info-button disable">
+                            <i class="ri-heart-3-line"></i>
+                        </div>
+                    </div>
+
+                    <p class="product__info-description" contenteditable="true" data-placeholder="Enter a product description">
+                        captures the mesmerizing beauty of a fantastical world
+                        cloaked in the shroud of twilight. In this enchanting scene,
+                        a lone figure stands atop a crumbling tower, silhouetted against
+                        the radiant, star-studded sky
+                    </p>
+
+                    <div class="product__review disable">
+                        <ul class="product__stars">
+                            <i class="ri-star-s-fill"></i>
+                            <i class="ri-star-s-fill"></i>
+                            <i class="ri-star-s-fill"></i>
+                            <i class="ri-star-s-fill"></i>
+                            <i class="ri-star-s-fill"></i>
+                        </ul>
+
+                        <p class="product__review-text"><span>(23213)</span>Reviews</p>
+                    </div>
+
+                    <div class="product__info-actions">
+                        <h3 class="product__total" contenteditable="true" data-placeholder="price whithout $">
+                            $43.00
+                        </h3>
+
+                        <button class="add-to-cart-button button disable">Add to cart<i class="ri-arrow-right-s-line"></i></button>
+                    </div>
+                </div>
+
+                <div class="product__tags">
+                    <h3>tags</h3>
+                    <p class="product__tag" contenteditable="true" data-placeholder="enter a product name">3 tags</p>
+                </div>
+
+                <div class="btn-wrapper">
+                    <button class="add-product-btn button">Add product</button>
+                    <button class="draft-btn button">Save draft</button>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!--############### MAIN JS ###############-->
-    <script src="./src/js/main.js"></script>
-    <script src="./src/js/common.js"></script>
-    <script src="./src/js/add-product.js"></script>
+    <script src=".././src/js/common.js"></script>
+    <script src=".././src/js/add-product.js"></script>
 </body>
 
 </html>

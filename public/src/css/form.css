@@ -65,6 +65,7 @@ input:focus::placeholder {
 
 #checkbox {
   -webkit-appearance: none;
+  appearance: none;
   width: 18px;
   height: 18px;
   padding: 0;
