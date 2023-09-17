@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { initializeApp } from "firebase/app";
 import { getFirestore, getDoc, doc, collection, setDoc, updateDoc, CollectionReference, getDocs, query, where, deleteDoc } from "firebase/firestore";
 
+dotenv.config();
 /*########## FIREBASE CONFIG ##########*/
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,7 +20,6 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 const db = getFirestore();
 
-dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 

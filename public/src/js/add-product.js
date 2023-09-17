@@ -93,6 +93,7 @@ addProductBtn.addEventListener("click", () => {
         sendData('/add-product', data);
     }
 })
+
 // formato do produto a ser mandado para o server
 const productData = () => {
     let tagsArr = tags.innerText.split(",");
@@ -109,6 +110,26 @@ const productData = () => {
         draft: false
     }
 }
+
+// draft btn
+let draftButton = document.querySelector('.draft-btn')
+
+draftButton.addEventListener("click", () => {
+    if(!productName.innerHTML.length || productName.innerHTML == productName.getAttribute('data-placeholder')) {
+        showFormError("Enter product name atleast");
+    } else { // don't validate the form
+        let data = productData();
+        data.draft = true;
+        if(productId) {
+            data.id = productId;
+        }
+
+        sendData("/add-product", data)
+    }
+})
+
+
+// edit page
 
 // pagina de editar produtos funcionalidades
 // envia produto atualizado adicionar id em get-products

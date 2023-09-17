@@ -11,8 +11,6 @@ if (user == null) {
 }
 
 // insere nome do user na dashboard
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Seu código aqui
     let greeting = document.getElementById("#seller-greeting");
