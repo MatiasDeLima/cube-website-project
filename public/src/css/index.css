@@ -1,5 +1,5 @@
 /*############### GOOGLE FONTS ###############*/
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @import url("./footer.css");
 @import url("./header.css");
@@ -11,7 +11,7 @@
   /*########## Colors ##########*/
   --first-color: #ffd585;
   --first-color-alt: ;
-  --text-color: #bbbcbd;
+  --text-color: #BBBCBD;
   --text-color-light: #606269;
   --text-color-dark: #1f2025;
   --body-color: #1f2025;
@@ -23,9 +23,9 @@
   --bg-glass-color: hsla(240, 11%, 18%, 50%);
 
   /*########## Font and typography ##########*/
-  --body-font: "Mulish", sans-serif;
+  --body-font: 'Inter', sans-serif;
   --second-font: "Bigilla";
-  --biggest-font-size: 3rem;
+  --biggest-font-size: 3.5rem;
   --h1-font-size: 2rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
@@ -147,52 +147,42 @@ button {
 
 /*############### HOME ###############*/
 .swiper-home {
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 
 .home__content {
-  row-gap: 3.25rem;
+  row-gap: 4rem;
 }
 
-.home__data-info {
-  margin-bottom: 2rem;
-}
-
-.home__data-info img {
-  width: 113px;
-  margin-bottom: 1.5rem;
-}
-
-.home__info-title {
-  font-family: var(--second-font);
-  font-size: var(--h3-font-size);
-  margin-bottom: 0.5rem;
-  color: var(--first-color);
-}
-
-.home__info-description {
-  line-height: 21px;
-  font-weight: 300;
-}
-
-.home__title {
+.hero__title {
   font-size: var(--biggest-font-size);
   font-family: var(--second-font);
   color: var(--first-color);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
   font-weight: var(--font-bold);
 }
 
-.home__title span {
+.hero__description {
+  margin-bottom: 2rem;
+  line-height: 21px;
+  font-weight: var(--font-regular);
+}
+
+.hero__title span {
   display: flex;
   align-items: center;
   column-gap: 1.5rem;
 }
 
-.home__data-content {
+.hero__title span img{
+  width: 52px;
+}
+
+.hero__data-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2.25rem;
 }
 
 .data__content-title,
@@ -216,11 +206,11 @@ button {
   font-weight: var(--font-bold);
 }
 
-.home__image {
+.hero__image {
   position: relative;
   justify-self: center;
-  width: 251px;
-  height: 415px;
+  width: 240px;
+  height: 397px;
   border: 1px solid var(--first-color);
   border-radius: 500px;
   display: grid;
@@ -230,23 +220,22 @@ button {
 .home__image-border {
   position: absolute;
   border: 1px solid var(--first-color);
-  height: 392px;
-  width: 226px;
+  width: 217px;
+  height: 374px;
   border-radius: 500px;
   overflow: hidden;
   display: grid;
   place-items: center;
 }
 
-.home__image-border .home__img {
+.home__image-border img {
   position: absolute;
-  max-width: 251px;
+  max-width: 220px;
   object-fit: cover;
   object-position: center;
 }
 
-.home__decoration-1,
-.home__decoration-2 {
+.home__decoration-1 {
   position: absolute;
   z-index: 1;
 }
@@ -257,18 +246,8 @@ button {
   left: -1.6rem;
 }
 
-.home__decoration-2 {
-  bottom: -4.5rem;
-  max-width: 370px;
-  left: -2.5rem;
-}
 
-.next-button {
-  cursor: pointer;
-  position: absolute;
-  bottom: -8rem;
-  right: -1.5rem;
-}
+
 
 /* Swiper Class */
 .swiper {
@@ -329,6 +308,21 @@ button {
 }
 
 /*############### BUTTONS ###############*/
+.button-flex {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+}
+
+.button-flex:hover i {
+  transform: translateX(.25rem);
+}
+
+.button-flex i {
+  font-size: 1.25rem;
+  transition: .3s;
+}
+
 .button {
   display: inline-block;
   padding: 0.75rem 2rem;
@@ -336,6 +330,13 @@ button {
   font-weight: var(--font-bold);
   background-color: var(--first-color);
   border-radius: 0.25rem;
+}
+
+.outline__button {
+  padding: .875rem 1.25rem;
+  border: 1px solid var(--text-color);
+  color: var(--white-color);
+  font-weight: var(--font-medium);
 }
 
 /*############### CATEGORY ###############*/

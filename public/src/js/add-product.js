@@ -107,7 +107,7 @@ const productData = () => {
         image: imagePath,
         tags: tags.innerText,
         email: JSON.parse(sessionStorage.user).email,
-        draft: false
+        draft: false // draft button // nao e um draft
     }
 }
 
