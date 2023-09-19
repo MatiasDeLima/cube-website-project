@@ -23,6 +23,17 @@ let homeSwiper = new Swiper(".swiper-home", {
     },
 });
 
+/*############### CUSTOMER SWIPER ###############*/
+let customerSwiper = new Swiper(".customers__container", {
+    centeredSlides: true,
+    slidesPerView: "auto",
+    spaceBetween: 32,
+
+    pagination: {
+        el: ".swiper-pagination",
+    },
+});
+
 /*############### SCROLL SECTIONS ACTIVE LINK ###############*/
 
 

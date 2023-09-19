@@ -1,5 +1,5 @@
 /*############### GOOGLE FONTS ###############*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 @import url("./footer.css");
 @import url("./header.css");
@@ -11,7 +11,7 @@
   /*########## Colors ##########*/
   --first-color: #ffd585;
   --first-color-alt: ;
-  --text-color: #BBBCBD;
+  --text-color: #bbbcbd;
   --text-color-light: #606269;
   --text-color-dark: #1f2025;
   --body-color: #1f2025;
@@ -23,10 +23,10 @@
   --bg-glass-color: hsla(240, 11%, 18%, 50%);
 
   /*########## Font and typography ##########*/
-  --body-font: 'Inter', sans-serif;
+  --body-font: "Inter", sans-serif;
   --second-font: "Bigilla";
   --biggest-font-size: 3.5rem;
-  --h1-font-size: 2rem;
+  --h1-font-size: 2.25rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
   --normal-font-size: 0.875rem;
@@ -101,12 +101,12 @@ input {
   font-family: var(--body-font);
   border: none;
   outline: none;
+  font-size: var(--normal-font-size);
 }
 
 button {
   cursor: pointer;
   font-family: var(--body-font);
-  font-size: var(--normal-font-size);
 }
 
 /*############### REUSABLE CSS CLASSES ###############*/
@@ -129,6 +129,14 @@ button {
 
 .section__title img {
   width: 24px;
+}
+
+.section__title-center {
+  text-align: center;
+}
+
+.section__title-center span {
+  justify-content: center;
 }
 
 /*############### LAYOUT ###############*/
@@ -174,7 +182,7 @@ button {
   column-gap: 1.5rem;
 }
 
-.hero__title span img{
+.hero__title span img {
   width: 52px;
 }
 
@@ -236,22 +244,21 @@ button {
 }
 
 .home__decoration-1 {
+  top: 1rem;
+  left: -2rem;
   position: absolute;
   z-index: 1;
 }
 
-.home__decoration-1 {
-  width: 2.5rem;
-  top: -0.5rem;
-  left: -1.6rem;
+.home__decoration-2 {
+  position: absolute;
+  max-width: 300px;
+  z-index: 1;
 }
 
-
-
-
 /* Swiper Class */
-.swiper {
-  height: 135vh;
+.home.swiper {
+  height: 122vh;
 }
 
 .swiper-button-next::after {
@@ -311,16 +318,17 @@ button {
 .button-flex {
   display: inline-flex;
   align-items: center;
-  column-gap: .5rem;
+  column-gap: 0.5rem;
+  justify-content: center;
 }
 
 .button-flex:hover i {
-  transform: translateX(.25rem);
+  transform: translateX(0.25rem);
 }
 
 .button-flex i {
   font-size: 1.25rem;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .button {
@@ -329,27 +337,331 @@ button {
   color: var(--body-color);
   font-weight: var(--font-bold);
   background-color: var(--first-color);
-  border-radius: 0.25rem;
 }
 
 .outline__button {
-  padding: .875rem 1.25rem;
+  padding: 0.875rem 1.25rem;
   border: 1px solid var(--text-color);
   color: var(--white-color);
   font-weight: var(--font-medium);
 }
 
-/*############### CATEGORY ###############*/
+/*############### COLLECTIONS ###############*/
+.collection__container {
+  padding-top: 4rem;
+  gap: 2rem;
+}
+
+.top__actions {
+  display: grid;
+  grid-template-columns: 220px;
+  justify-content: center;
+  row-gap: 2.5rem;
+  margin: 0 auto;
+}
+
+.collection__card {
+  background-color: var(--container-color);
+  padding: 1.25rem 1.25rem 2rem;
+  transition: box-shadow 0.3s;
+}
+
+.collection__card:hover {
+  cursor: pointer;
+  box-shadow: 0px 8px 51px 0px rgba(0, 0, 0, 0.17);
+}
+
+.collection__card-img {
+  position: relative;
+  height: 246px;
+  margin-bottom: 1.25rem;
+}
+
+.collection__card-img img {
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+  height: 246px;
+}
+
+.card__img-like {
+  position: absolute;
+  cursor: pointer;
+  font-size: 1.25rem;
+  right: 1rem;
+  top: 1rem;
+  padding: 1rem;
+  display: grid;
+  color: var(--white-color);
+  place-items: center;
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  background-color: var(--bg-glass-color);
+}
+
+.collection__card-infos {
+  margin-bottom: 2.25rem;
+}
+
+.collection__card-title {
+  font-size: var(--h3-font-size);
+  color: var(--white-color);
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
+}
+
+.collection__card-categorie {
+  font-weight: var(--font-regular);
+}
+
+.collection__card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.collection__card-price {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-bold);
+  color: var(--white-color);
+}
 
 /*############### ABOUT ###############*/
+.about {
+  background-color: var(--container-color);
+}
 
-/*############### TRICK OR TREAT ###############*/
+.about__container {
+  padding-bottom: 2.5rem;
+  gap: 4rem;
+}
 
-/*############### DISCOUNT ###############*/
+.about__title {
+  margin-bottom: 1.25rem;
+}
 
-/*############### NEW ARRIVALS ###############*/
+.about__data-description {
+  line-height: 21px;
+  margin-bottom: 2.25rem;
+}
+
+.about__image {
+  position: relative;
+  justify-self: center;
+  width: 240px;
+  height: 397px;
+  border: 1px solid var(--first-color);
+  border-radius: 500px;
+  display: grid;
+  place-items: center;
+}
+
+.about__image-border {
+  position: absolute;
+  transition: border 0.4s;
+  width: 217px;
+  height: 374px;
+  border-radius: 500px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.about__image-border img {
+  transition: 0.4s;
+  mix-blend-mode: luminosity;
+  position: absolute;
+  max-width: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about__image-border:hover img {
+  mix-blend-mode: normal;
+}
+
+.about__image-border:hover {
+  cursor: pointer;
+  border: 1px solid var(--first-color);
+}
+
+.about__decoration-1 {
+  width: 40px;
+  position: absolute;
+  z-index: 1;
+  top: -0.6rem;
+  right: -1.5rem;
+}
+
+/*############### CUSTOMERS ###############*/
+.customers__container {
+  padding-top: 4rem;
+}
+
+.customers__card {
+  transition: box-shadow 0.3s;
+  background-color: var(--container-color);
+  padding: 2rem 1.25rem 3.75rem;
+}
+
+.customers__card-img {
+  position: relative;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 2rem;
+}
+
+.customers__card-img img {
+  border-radius: 50%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.customers__rating {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  z-index: 1;
+  background-color: var(--green-color);
+  width: 40px;
+  height: 20px;
+  color: var(--white-color);
+  border-radius: 2rem;
+  bottom: 0.3rem;
+  right: -1.5rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+}
+
+.customers__card-title {
+  line-height: 30px;
+  font-size: var(--h3-font-size);
+  color: var(--white-color);
+  font-weight: var(--font-bold);
+  margin-bottom: 2rem;
+}
+
+.customers__card-text {
+  line-height: 21px;
+}
+
+.customers__card:hover {
+  cursor: pointer;
+  box-shadow: 0px 8px 51px 0px rgba(0, 0, 0, 0.17);
+}
+
+.customer__pagination {
+  position: initial;
+  inset: 0;
+  margin-top: 4rem;
+}
+
+/*############### CONTACT US ###############*/
+.contact__container {
+  padding-top: 4rem;
+}
+
+.contact__form {
+  display: grid;
+}
+
+.contact__input-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.text__area {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  resize: none;
+  margin-bottom: 1rem;
+}
+
+.contact__input {
+  background-color: transparent;
+  border: 1px solid var(--text-color-light);
+  padding: 1rem;
+  font-weight: var(--font-medium);
+}
+
+.contact__message {
+  display: block;
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+  margin-bottom: 3rem;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+/*############### ARTWORK ###############*/
+.artwork {
+  background-color: var(--container-color);
+}
+
+.artwork__container {
+  padding-bottom: 2.5rem;
+  gap: 4rem;
+}
+
+.artwork__data {
+  text-align: center;
+}
+
+.artwork__description {
+  line-height: 21px;
+  margin: 1.5rem 0 2.25rem;
+}
+
+.artwork__image {
+  position: relative;
+  justify-self: center;
+  width: 240px;
+  height: 397px;
+  border: 1px solid var(--first-color);
+  border-radius: 500px;
+  display: grid;
+  place-items: center;
+}
+
+.artwork__decoration-1 {
+  width: 40px;
+  position: absolute;
+  z-index: 1;
+  top: -0.6rem;
+  right: -1.5rem;
+}
+
+.artwork__image-border {
+  position: absolute;
+  transition: border 0.4s;
+  width: 217px;
+  height: 374px;
+  border-radius: 500px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.artwork__image-border img {
+  transition: 0.4s;
+  mix-blend-mode: luminosity;
+  position: absolute;
+  max-width: 220px;
+  object-fit: cover;
+  object-position: center;
+}
 
 /*############### NEWSLETTER ###############*/
+
 
 /*############### SCROLL UP ###############*/
 .scrollup {
@@ -405,7 +717,6 @@ button {
 }
 
 @media screen and (min-width: 767px) {
- 
 }
 
 @media screen and (min-width: 830px) {
@@ -449,8 +760,6 @@ button {
   .container {
     margin-inline: auto;
   }
-
-  
 }
 
 /*############### KEYFRAMES ###############*/
