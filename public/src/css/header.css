@@ -33,16 +33,53 @@
   align-items: center;
 }
 
+.nav__cart {
+  position: relative;
+}
+
+.cart__status {
+  position: absolute;
+  top: -2px;
+  right: -3px;
+  background-color: var(--red-color);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.cart__status-active {
+  display: none;
+}
+
 .nav__user {
   position: relative;
   cursor: pointer;
   background-color: var(--container-color);
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: var(--text-color-light);
+  border: 1px solid var(--text-color);
+}
+
+.user-icon {
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.user__status {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--green-color);
+  border-radius: 50%;
+}
+
+.user__status-active {
+  display: none;
 }
 
 /*############### MOBILE DEVICE ###############*/
@@ -97,6 +134,11 @@
 /* Show menu */
 .show-menu {
   right: 0;
+}
+
+/* desk header button */
+.active-desktop {
+  display: none;
 }
 
 /* Change background header */
@@ -158,3 +200,6 @@
 }
 
 /* Active link */
+.active-link {
+  color: var(--first-color);
+}

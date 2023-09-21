@@ -2,58 +2,7 @@ const createHeader = () => {
 	const header = document.querySelector(".header");
 
 	header.innerHTML = `
-        <nav class="nav container">
-            <a href="/" class="nav__logo">
-                <img src="./src/assets/images/logo-image.svg">
-            </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">Home</a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">Collection</a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">Artist</a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#" class="nav__link">Library</a>
-                    </li>
-
-                    <a href="#" class="contact__button">
-                        Contact us
-                    </a>
-                </ul>
-
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
-                </div>
-            </div>
-
-            <div class="header__buttons">
-                <div class="nav__cart" id="cart-button">
-                    <i class="ri-shopping-bag-line"></i>
-                </div>
-
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-menu-line"></i>
-                </div>
-
-                <div class="nav__user" id="nav-user">            
-                    <i class="ri-user-3-line"></i>
-
-                    <div class="nav__user-popup">
-                        <p>Login to your account</p>
-                        <a>Login</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
+       
     `;
 };
 

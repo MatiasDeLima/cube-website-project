@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-unused-vars */
 /*############### CHANGE BACKGROUND HEADER ###############*/
 const scrollHeader = () => {
@@ -29,8 +31,16 @@ let homeSwiper = new Swiper(".swiper-home", {
 // eslint-disable-next-line no-undef
 let customerSwiper = new Swiper(".customers__container", {
 	centeredSlides: true,
+	loop: true,
 	slidesPerView: "auto",
 	spaceBetween: 32,
+
+	breakpoints: {
+		1024: {
+			// eslint-disable-next-line no-mixed-spaces-and-tabs
+			slidesPerView: 3, // Number of slides per view when viewport width is 1024px or more
+		},
+	},
 
 	pagination: {
 		el: ".swiper-pagination",
@@ -38,9 +48,35 @@ let customerSwiper = new Swiper(".customers__container", {
 });
 
 /*############### SCROLL SECTIONS ACTIVE LINK ###############*/
+// const sections = document.querySelectorAll("section[id]");
+
+// function scrollActive(){
+// 	const scrollY = window.pageYOffset;
+
+// 	sections.forEach(current =>{
+// 		const sectionHeight = current.offsetHeight,
+// 			sectionTop = current.offsetTop - 58,
+// 			sectionId = current.getAttribute("id");
+
+// 		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+// 			document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.add("active-link");
+// 		}else{
+// 			document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.remove("active-link");
+// 		}
+// 	});
+// }
+// window.addEventListener("scroll", scrollActive);
 
 
 /*############### SHOW SCROLL UP ###############*/
+const scrollUp = () => {
+	const scrollUp = document.getElementById("scroll-up");
+
+	this.scrollY >= 350 ? scrollUp.classList.add("show-scrollup")
+		: scrollUp.classList.remove("show-scrollup");
+};
+
+window.addEventListener("scroll", scrollUp);
 
 
 /*############### EMAIL JS ###############*/
@@ -50,15 +86,15 @@ let customerSwiper = new Swiper(".customers__container", {
 
 
 /*############### SCROLL REVEAL ANIMATION ###############*/
-/*const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 2500,
-    delay: 400,
-    // reset: true
-})
+const sr = ScrollReveal({
+	origin: "top",
+	distance: "60px",
+	duration: 2500,
+	delay: 400,
+	// reset: true
+});
 
-sr.reveal(`.home-swiper, .new-swiper, .newsletter__container`)
-sr.reveal(`.category__data, .trick__content, .footer__content`, { interval: 100 })
-sr.reveal(`.about__data, .discount__img`, { origin: 'left' })
-sr.reveal(`.about__img, .discount__data`, { origin: 'right' })*/
+sr.reveal(".swiper-home, .customers__container, .contact__container, .newsletter__container");
+sr.reveal(".category__data, .footer__content, .collection__card", { interval: 100 });
+sr.reveal(".about__data, .artwork__image", { origin: "left" });
+sr.reveal(".about__image, .artwork__data", { origin: "right" });

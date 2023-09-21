@@ -1,12 +1,25 @@
 /*############### FOOTER ###############*/
 .footer__container {
+  justify-content: center;
   padding-top: 1rem;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem 2rem;
+  row-gap: 3.5rem;
+}
+
+.footer__content-grid {
+  display: grid;
+  grid-template-columns: 92px 110px;
+  gap: 6.5rem;
+}
+
+.content-left,
+.content-rigth {
+  row-gap: 3.25rem;
 }
 
 .footer__description {
+  width: 230px;
   margin-top: 0.5rem;
+  line-height: 21px;
   font-size: var(--small-font-size);
   color: var(--text-color);
 }
