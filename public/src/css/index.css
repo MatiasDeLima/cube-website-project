@@ -257,10 +257,6 @@ button {
 }
 
 /* Swiper Class */
-.home.swiper {
-  height: 122vh;
-}
-
 .swiper-button-next::after {
   content: "";
 }
@@ -271,6 +267,12 @@ button {
   inset: 0;
   top: 32rem;
   left: 7rem;
+}
+
+.swiper-pagination {
+  position: initial;
+  inset: 0;
+  margin-top: 4rem;
 }
 
 .swiper-pagination-bullet {
@@ -332,11 +334,14 @@ button {
 }
 
 .button {
-  display: inline-block;
   padding: 0.75rem 2rem;
   color: var(--body-color);
-  font-weight: var(--font-bold);
+  font-weight: var(--font-semi-bold);
   background-color: var(--first-color);
+}
+
+.small-button {
+  padding: 0.75rem 1.25rem;
 }
 
 .outline__button {
@@ -349,6 +354,7 @@ button {
 /*############### COLLECTIONS ###############*/
 .collection__container {
   padding-top: 4rem;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -364,6 +370,7 @@ button {
   background-color: var(--container-color);
   padding: 1.25rem 1.25rem 2rem;
   transition: box-shadow 0.3s;
+  width: 260px;
 }
 
 .collection__card:hover {
@@ -373,7 +380,7 @@ button {
 
 .collection__card-img {
   position: relative;
-  height: 246px;
+  height: 190px;
   margin-bottom: 1.25rem;
 }
 
@@ -382,7 +389,7 @@ button {
   position: absolute;
   object-fit: cover;
   object-position: center;
-  height: 246px;
+  height: 190px;
 }
 
 .card__img-like {
@@ -401,7 +408,7 @@ button {
 }
 
 .collection__card-infos {
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
 }
 
 .collection__card-title {
@@ -422,7 +429,7 @@ button {
 }
 
 .collection__card-price {
-  font-size: var(--h2-font-size);
+  font-size: var(--h3-font-size);
   font-weight: var(--font-bold);
   color: var(--white-color);
 }
@@ -500,9 +507,10 @@ button {
 }
 
 .customers__card {
+  width: 280px;
   transition: box-shadow 0.3s;
   background-color: var(--container-color);
-  padding: 2rem 1.25rem 3.75rem;
+  padding: 2rem 1.25rem 3rem;
 }
 
 .customers__card-img {
@@ -661,7 +669,41 @@ button {
 }
 
 /*############### NEWSLETTER ###############*/
+.newsletter__title {
+  font-size: var(--h2-font-size);
+  font-family: var(--second-font);
+  color: var(--first-color);
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
 
+.newsletter__description {
+  line-height: 21px;
+  text-align: center;
+}
+
+.newsletter__data {
+  margin-bottom: 2rem;
+}
+
+.newsletter__form {
+  display: grid;
+  grid-template-columns: 290px;
+  justify-content: center;
+}
+
+.newsletter__input {
+  background-color: transparent;
+  border: 1px solid var(--text-color-light);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.newsletter__message {
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+  margin-bottom: 2.75rem;
+}
 
 /*############### SCROLL UP ###############*/
 .scrollup {
@@ -710,21 +752,54 @@ button {
 
 /* For medium devices */
 @media screen and (min-width: 576px) {
-  .home__content {
-    grid-template-columns: 400px;
+  .about__data, 
+  .home__data {
+    width: 327px;
+  }
+
+  .contact__container,
+  .artwork__container,
+  .newsletter__container {
+    grid-template-columns: 327px;
     justify-content: center;
   }
 }
 
 @media screen and (min-width: 767px) {
-}
-
-@media screen and (min-width: 830px) {
   .home__content {
-    grid-template-columns: 336px 336px;
+    grid-template-columns: 327px 375px;
     justify-content: center;
-    gap: 5rem;
-    padding-top: 6rem;
+    align-items: center;
+  }
+
+  .collection__container {
+    grid-template-columns: repeat(2, 260px);
+    justify-content: center;
+  }
+
+  .about__container {
+    grid-template-columns: 240px 327px;
+    justify-content: center;
+    align-items: center;
+    gap: 3.25rem;
+  }
+
+  .about__data {
+    order: 2;
+    width: initial;
+  }
+
+  .contact__container {
+    grid-template-columns: 517px;
+  }
+
+  .contact__input-flex {
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+  }
+
+  .artwork__container {
+    grid-template-columns: 327px 240px;
   }
 }
 
@@ -745,15 +820,47 @@ button {
   }
 
   .home__content {
-    grid-template-columns: 300px 400px;
-    justify-content: center;
-    gap: 5rem;
-    padding-top: 6rem;
+    grid-template-columns: 327px 300px;
+    /*gap: 5rem;*/
+    gap: 10.625rem;
+    padding-top: 5rem;
   }
 
-  .swiper {
-    height: 800px;
+  .hero__image {
+    width: 300px;
+    height: 496px;
   }
+
+  .home__image-border {
+    width: 272px;
+    height: 468px;
+  }
+
+  .home__image-border img {
+    max-width: 290px;
+    height: 468px;
+  }
+
+  .about__image {
+    width: 290px;
+    height: 456px;
+  }
+
+  .about__image-border {
+    width: 262px;
+    height: 430px;
+  }
+
+  .about__image-border img {
+    max-width: 400px;
+    height: 430px;
+  }
+
+  .about__container {
+    grid-template-columns: 290px 327px;
+    gap: 4.5rem;
+  }
+  
 }
 
 @media screen and (min-width: 1200px) {

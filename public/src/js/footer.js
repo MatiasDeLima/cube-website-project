@@ -1,7 +1,7 @@
 const createFooter = () => {
-    let footer = document.querySelector(".footer");
+	let footer = document.querySelector(".footer");
 
-    footer.innerHTML = `
+	footer.innerHTML = `
         <div class="footer__container container grid">
             <div class="footer__content">
                 <a href="#" class="nav__logo">
@@ -120,6 +120,6 @@ const createFooter = () => {
 
         <span class="footer__copy">Design and code by matias</span>
     `;
-}
+};
 
 createFooter();

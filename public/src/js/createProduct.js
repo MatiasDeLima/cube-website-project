@@ -1,8 +1,8 @@
 /*############### PRODUTO DO CRIADO PELO ADMIN ############### */
 // renderiza produto na dashboard
 const createProduct = (data) => {
-    let productContainer = document.querySelector(".dashboard__content");
-    productContainer.innerHTML += `
+	let productContainer = document.querySelector(".dashboard__content");
+	productContainer.innerHTML += `
         <article class="product__card">
             <img src="${data.image}">
 
@@ -14,23 +14,23 @@ const createProduct = (data) => {
             <p class="product-name">${data.tags[0]}<p/>
         </article>
     `;
-}
+};
 
 // delete product for dashboard
 const deleteItem = (id) => {
-    fetch('/delete-product', {
-        method: 'POST',
-        headers: new Headers({ 'Content-Type' : 'application/json' }),
-        body: JSON.stringify({ id: id })
-    })
-    .then(res => res.json())
-    .then(data => {
-        // process data
-        if(data == 'success') {
-            location.reload()
-        } else {
-            showAlert('some error occured')
-        }
+	fetch("/delete-product", {
+		method: "POST",
+		headers: new Headers({ "Content-Type" : "application/json" }),
+		body: JSON.stringify({ id: id })
+	})
+		.then(res => res.json())
+		.then(data => {
+			// process data
+			if(data == "success") {
+				location.reload();
+			} else {
+				showAlert("some error occured");
+			}
 
-    })
-}
+		});
+};

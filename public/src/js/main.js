@@ -1,37 +1,40 @@
+/* eslint-disable no-unused-vars */
 /*############### CHANGE BACKGROUND HEADER ###############*/
 const scrollHeader = () => {
-    const header = document.getElementById("header");
+	const header = document.getElementById("header");
 
-    this.scrollY >= 50 ? header.classList.add("scroll-header")
-        : header.classList.remove("scroll-header")
-}
+	this.scrollY >= 50 ? header.classList.add("scroll-header")
+		: header.classList.remove("scroll-header");
+};
 
 window.addEventListener("scroll", scrollHeader);
 
 /*############### HOME SWIPER ###############*/
+// eslint-disable-next-line no-undef
 let homeSwiper = new Swiper(".swiper-home", {
-    centeredSlides: true,
-    slidesPerView: "auto",
-    spaceBetween: 32,
+	centeredSlides: true,
+	slidesPerView: "auto",
+	spaceBetween: 32,
 
-    navigation: {
-        nextEl: ".swiper-button-next",
-      },
+	navigation: {
+		nextEl: ".swiper-button-next",
+	},
 
-    pagination: {
-        el: ".swiper-pagination",
-    },
+	pagination: {
+		el: ".swiper-pagination",
+	},
 });
 
 /*############### CUSTOMER SWIPER ###############*/
+// eslint-disable-next-line no-undef
 let customerSwiper = new Swiper(".customers__container", {
-    centeredSlides: true,
-    slidesPerView: "auto",
-    spaceBetween: 32,
+	centeredSlides: true,
+	slidesPerView: "auto",
+	spaceBetween: 32,
 
-    pagination: {
-        el: ".swiper-pagination",
-    },
+	pagination: {
+		el: ".swiper-pagination",
+	},
 });
 
 /*############### SCROLL SECTIONS ACTIVE LINK ###############*/

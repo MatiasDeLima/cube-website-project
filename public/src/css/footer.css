@@ -12,7 +12,7 @@
 }
 
 .footer__title {
-  color: var(--white-color);
+  color: var(--first-color);
   font-weight: 600;
   text-transform: uppercase;
   font-size: var(--normal-font-size);
@@ -52,6 +52,6 @@
 .footer__copy {
   display: block;
   text-align: center;
-  font-size: var(--smaller-font-size);
+  font-size: var(--small-font-size);
   margin-top: 4.5rem;
 }
