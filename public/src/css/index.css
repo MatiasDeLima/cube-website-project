@@ -466,7 +466,6 @@ button {
 
 .about__image-border {
   position: absolute;
-  transition: border 0.4s;
   width: 217px;
   height: 374px;
   border-radius: 500px;
@@ -890,7 +889,6 @@ button {
     grid-template-columns: 327px 300px;
     /*gap: 5rem;*/
     gap: 10.625rem;
-    padding-top: 5rem;
   }
 
   .hero__image {
