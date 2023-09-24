@@ -202,7 +202,6 @@ textarea {
   border: 1px solid var(--border-color);
   padding: 1.25rem;
   background: transparent;
-  border-radius: 8px;
 }
 
 .add-review__title {
@@ -316,3 +315,54 @@ textarea {
   font-size: 1.25rem;
   transition: 0.3s;
 }
+
+/*###############  BREAKPOINTS ###############*/
+/* for small devices */
+@media screen and (min-width: 576px) {
+  .add-review__container {
+    grid-template-columns: 500px;
+    justify-content: center;
+  }
+}
+
+/* for medium devices */
+@media screen and (min-width: 767px) {
+  .product__container {
+    grid-template-columns: repeat(2, 327px) ;
+    column-gap: 4rem;
+    align-items: center;
+  }
+}
+
+/* for large devices */
+@media screen and (min-width: 1024px) {
+  .product__container {
+    grid-template-columns: repeat(2, 400px) ;
+    column-gap: 4rem;
+  }
+
+  .product__image {
+    width: 400px;
+    height: 400px;
+  }
+
+  .product__image img {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .product__container {
+    column-gap: 5rem;
+  }
+
+  .container {
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: 7rem 2rem;
+  }
+}
+
