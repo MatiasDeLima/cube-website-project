@@ -20,7 +20,7 @@ const getProducts = (tag) => {
 // create collections cards
 const createProductCards = (data, title, ele) => {
 	// console.log(data);
-	let container = document.querySelector(ele);
+	let container = document.querySelector(`${ele}`);
 	container.innerHTML += `
 		<div class="top__actions">
 			<h2 class="section__title section__title-center">
@@ -39,43 +39,86 @@ const createProductCards = (data, title, ele) => {
 	`;
 };
 
-const createCards = data => {
+const createCards = (data) => {
 	let cards = "";
 
-	data.forEach(item => {
-		if (item.id != productId) {
-			cards += `
-			<article class="collection__card">
-				<div class="collection__card-img">
-					<img src="${item.image}" onclick="location.href = '/products/${item.id}'">
-					<div class="card__img-like">
-						<i class="ri-heart-3-line"></i>
+	if (Array.isArray(data)) {
+		data.map(item => {
+			if (item.id != productId) {
+				cards += `
+				<article class="collection__card">
+					<div class="collection__card-img">
+						<img src="${item.image}" onclick="location.href = '/products/${item.id}'">
+						<div class="card__img-like">
+							<i class="ri-heart-3-line"></i>
+						</div>
 					</div>
-				</div>
 
-				<div class="collection__card-infos">
-					<h4 class="collection__card-title">
-						${item.name}
-					</h4>
+					<div class="collection__card-infos">
+						<h4 class="collection__card-title">
+							${item.name}
+						</h4>
 
-					<p class="collection__card-categorie">
-						${item.categorie}
-					</p>
-				</div>
+						<p class="collection__card-categorie">
+							${item.categorie}
+						</p>
+					</div>
 
-				<div class="collection__card-actions">
-					<span class="collection__card-price">
-						$${item.price}
-					</span>
+					<div class="collection__card-actions">
+						<span class="collection__card-price">
+							$${item.price}
+						</span>
 
-					<button class="button small-button button-flex">
-						Order Now
-					</button>
-				</div>
-			</article>
-		`;
-		}
-	});
+						<button class="button small-button button-flex">
+							Order Now
+						</button>
+					</div>
+				</article>
+			`;
+			}
+		});
+	} else {
+		console.error("data não é um array.");
+	}
 
 	return cards;
 };
+
+// const createCards = data => {
+// 	let cards = "";
+
+// 	for (let i = 0; i < data.length; i++) {
+// 		cards += `
+// 			<article class="collection__card">
+// 				<div class="collection__card-img">
+// 					<img src="${data[i].image}" onclick="location.href = '/products/${data[i].id}'">
+// 					<div class="card__img-like">
+// 						<i class="ri-heart-3-line"></i>
+// 					</div>
+// 				</div>
+		
+// 				<div class="collection__card-infos">
+// 					<h4 class="collection__card-title">
+// 						${data[i].name}
+// 					</h4>
+		
+// 					<p class="collection__card-categorie">
+// 						${data[i].categorie}
+// 					</p>
+// 				</div>
+		
+// 				<div class="collection__card-actions">
+// 					<span class="collection__card-price">
+// 						$${data[i].price}
+// 					</span>
+		
+// 					<button class="button small-button button-flex">
+// 						Order Now
+// 					</button>
+// 				</div>
+// 			</article>
+// 		`;
+// 	}
+
+// 	return cards;
+// };

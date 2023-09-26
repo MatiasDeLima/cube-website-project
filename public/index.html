@@ -171,7 +171,8 @@
         </section>
 
         <!--==================== COLLECTIONS ====================-->
-        <section class="section collections">
+        <section class="home-collections"></section>
+        <!-- <section class="collections section" id="home-collections">
             <div class="top__actions">
                 <h2 class="section__title section__title-center">
                     <span>Top<img src="./src/assets/images/line.svg"></span>
@@ -358,7 +359,7 @@
                     </div>
                 </article>
             </div>
-        </section>
+        </section> -->
 
         <!--==================== ABOUT ====================-->
         <section class="section about" id="about">
@@ -671,10 +672,15 @@
     <script src="./src/js/libs/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.js"></script>
 
     <!--=============== MAIN JS ===============-->
-    <script src="./src/js/index.js"></script>
-    <script src="./src/js/main.js"></script>
     <script src="./src/js/header.js"></script>
     <script src="./src/js/footer.js"></script>
+    <!-- <script src="./src/js/index.js"></script> -->
+    <script src="./src/js/main.js"></script>
+
+
+    <script>
+        getProducts('data').then(res => createProductCards(res, 'Top collections', '.home-collections'));
+    </script>
 </body>
 
 </html>

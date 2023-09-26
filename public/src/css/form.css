@@ -1,11 +1,16 @@
 .form__container {
   padding-top: 2rem;
+  grid-template-columns: 300px;
+  justify-content: center;
+}
+
+.form__content {
+  box-shadow: 0px 8px 51px 0px rgba(0, 0, 0, 0.192);
 }
 
 .form {
   padding: 2rem 1.5rem;
   background-color: var(--container-color);
-  border-radius: 0.75rem;
   display: grid;
 }
 
@@ -121,10 +126,28 @@ input:focus::placeholder {
 
 /* form error */
 .form__error {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* show form error */
 .show__form-error {
-    opacity: 1;
+  opacity: 1;
+}
+
+.heigth-fixed {
+  height: 607px;
+}
+@media screen and (min-width: 576px) {
+  .form__container {
+    grid-template-columns: 400px;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .form__container {
+    padding-top: 5rem;
+    grid-template-columns: 400px 370px;
+    justify-content: center;
+  }
 }

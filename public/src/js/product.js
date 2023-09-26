@@ -45,8 +45,8 @@ const fetchProductData = () => {
 		})
 		.catch(err => {
 			console.log(err);
-			alert("no product found");
-			location.replace("/404");
+			// alert("no product found");
+			// location.replace("/404");
 		});
 };
 
