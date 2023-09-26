@@ -37,8 +37,8 @@ const accessKeyId = process.env.AWS_ACCESS_KEY;
 const secretAcessKey = process.env.AWS_SECRET_KEY;
 
 /*aws.config.update({
-    region,
-    credentials: new aws.Credentials(accessKeyId, secretAcessKey)
+	region,
+	credentials: new aws.Credentials(accessKeyId, secretAcessKey)
 })*/
 
 // init s3
@@ -52,13 +52,13 @@ const s3 = new aws.S3({
 async function generateURL() {
 	let date = new Date();
 
-	const imageName = `${date.getTime()}.png`;
+	const imageName = `${date.getTime()}.jpeg`;
 
 	const params = {
 		Bucket: bucketName,
 		Key: imageName,
 		Expires: 300,
-		ContentType: "image/png"
+		ContentType: "image/jpeg"
 	};
 
 	const uploadURL = await s3.getSignedUrlPromise("putObject", params);
@@ -207,19 +207,22 @@ app.get("/add-product/:id", (req, res) => {
 
 // pega os dado do formularo do front de add-product
 // adiciona ao DB
+// os producto de product.html vem daqui
 app.post("/add-product", (req, res) => {
 	let { name, categorie, shortDes, price, image, tags, email, draft, id } = req.body;
 
-	if (!name.length) {
-		res.json({ "alert": "🤷‍♂️ Should enter product name!" });
-	} else if (!categorie.length) {
-		res.json({ "alert": "🤷‍♂️ Should enter categorie name!" });
-	} else if (!shortDes.length) {
-		res.json({ "alert": "🤷‍♂️ Short des must be 80 letters long!" });
-	} else if (!price.length || !Number(price)) {
-		res.json({ "alert": "🤷‍♂️ Enter valid price!" });
-	} else if (!tags.length) {
-		res.json({ "alert": "🤷‍♂️ Enter tags!" });
+	if (!draft) {
+		if (!name.length) {
+			res.json({ "alert": "🤷‍♂️ Should enter product name!" });
+		} else if (!categorie.length) {
+			res.json({ "alert": "🤷‍♂️ Should enter categorie name!" });
+		} else if (!shortDes.length) {
+			res.json({ "alert": "🤷‍♂️ Short des must be 80 letters long!" });
+		} else if (!price.length || !Number(price)) {
+			res.json({ "alert": "🤷‍♂️ Enter valid price!" });
+		} else if (!tags.length) {
+			res.json({ "alert": "🤷‍♂️ Enter tags!" });
+		}
 	}
 
 	// add-product
@@ -239,9 +242,10 @@ app.post("/add-product", (req, res) => {
 
 // produtos vindo do add products depois de postar no db
 // pega do db e joga para o front
+// products.html
 app.post("/get-products", (req, res) => {
 	// o id so e colocado depois por esta relacionado a editar o produto
-	let { email, id } = req.body;
+	let { email, id, tag } = req.body;
 
 	let products = collection(db, "products");
 	let docRef;
@@ -249,6 +253,8 @@ app.post("/get-products", (req, res) => {
 	// products pelo id para editar
 	if (id) {
 		docRef = getDoc(doc(products, id));
+	} else if(tag) {
+		docRef = getDocs(query(products, where("tags", "array-contains", tag)));
 	} else {
 		docRef = getDocs(query(products, where("email", "==", email)));
 	}
@@ -294,6 +300,11 @@ app.post("/delete-product", (req, res) => {
 		}).catch(err => {
 			res.json("err");
 		});
+});
+
+
+app.get("/products/:id", (req, res) => {
+	res.sendFile("product.html", { root: "public" });
 });
 
 // 404 page router

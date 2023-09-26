@@ -104,8 +104,8 @@ const productData = () => {
 		categorie: categorie.innerText,
 		shortDes: shortDes.innerText,
 		price: price.innerText,
+		tags: tagsArr,
 		image: imagePath,
-		tags: tags.innerText,
 		email: JSON.parse(sessionStorage.user).email,
 		draft: false // draft button // nao e um draft
 	};

@@ -2,7 +2,64 @@ const createHeader = () => {
 	const header = document.querySelector(".header");
 
 	header.innerHTML = `
-       
+		<nav class="nav container">
+			<a href="/" class="nav__logo">
+				<img src="./src/assets/images/logo-image.svg">
+			</a>
+
+			<div class="nav__menu" id="nav-menu">
+				<ul class="nav__list">
+					<li class="nav__item">
+						<a href="/" class="nav__link">Home</a>
+					</li>
+
+					<li class="nav__item">
+						<a href="" class="nav__link">Collection</a>
+					</li>
+
+					<li class="nav__item">
+						<a href="" class="nav__link">Artist</a>
+					</li>
+
+					<li class="nav__item">
+						<a href="" class="nav__link">Library</a>
+					</li>
+
+					<a href="#contact" class="contact__button active-mobile">
+						Contact us
+					</a>
+				</ul>
+
+				<div class="nav__close" id="nav-close">
+					<i class="ri-close-line"></i>
+				</div>
+			</div>
+
+			<div class="header__buttons">
+				<div class="nav__cart" id="cart-button">
+					<span class="cart__status cart__status-active"></span>
+					<i class="ri-shopping-bag-line"></i>
+				</div>
+
+				<div class="nav__toggle" id="nav-toggle">
+					<i class="ri-menu-line"></i>
+				</div>
+
+				<div class="nav__user" id="nav-user">
+					<span class="user__status user__status-active"></span>
+					<i class="ri-user-3-line user-icon"></i>
+
+					<div class="nav__user-popup">
+						<p>Login to your account</p>
+						<a>Login</a>
+					</div>
+				</div>
+
+				<a href="" class="contact__button active-desktop">
+					Contact us
+				</a>
+			</div>
+		</nav>
     `;
 };
 
@@ -53,6 +110,16 @@ if(cartClose) {
 		cartMenu.classList.remove("show-cart");
 	});
 }
+
+/*############### CHANGE BACKGROUND HEADER ###############*/
+const scrollHeader = () => {
+	const header = document.getElementById("header");
+
+	this.scrollY >= 50 ? header.classList.add("scroll-header")
+		: header.classList.remove("scroll-header");
+};
+
+window.addEventListener("scroll", scrollHeader);
 
 /*############### USER POPUP ###############*/
 const userButton = document.getElementById("nav-user");

@@ -1,100 +1,81 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-unused-vars */
-/*############### CHANGE BACKGROUND HEADER ###############*/
-const scrollHeader = () => {
-	const header = document.getElementById("header");
+/*############### COLLECTION PRODUCTS ###############*/
 
-	this.scrollY >= 50 ? header.classList.add("scroll-header")
-		: header.classList.remove("scroll-header");
+// get products function 
+
+const getProducts = (tag) => {
+	return fetch("/get-products", {
+		method: "POST",
+		headers: new Headers({ "Content-Type": "application/json" }),
+		body: JSON.stringify({ tag: tag })
+	})
+		.then(res => res.json())
+		.then(data => {
+			return data;
+		});
 };
 
-window.addEventListener("scroll", scrollHeader);
+// create collections cards
+const createProductCards = (data, title, ele) => {
+	// console.log(data);
+	let container = document.querySelector(ele);
+	container.innerHTML += `
+		<div class="top__actions">
+			<h2 class="section__title section__title-center">
+				<span>${title}<img src=".././src/assets/images/line.svg"></span>
+				Collections
+			</h2>
 
-/*############### HOME SWIPER ###############*/
-// eslint-disable-next-line no-undef
-let homeSwiper = new Swiper(".swiper-home", {
-	centeredSlides: true,
-	slidesPerView: "auto",
-	spaceBetween: 32,
+			<a href="#" class="outline__button button-flex">
+				View All Collections <i class="ri-arrow-right-s-line"></i>
+			</a>
+		</div>
 
-	navigation: {
-		nextEl: ".swiper-button-next",
-	},
-
-	pagination: {
-		el: ".swiper-pagination",
-	},
-});
-
-/*############### CUSTOMER SWIPER ###############*/
-// eslint-disable-next-line no-undef
-let customerSwiper = new Swiper(".customers__container", {
-	centeredSlides: true,
-	loop: true,
-	slidesPerView: "auto",
-	spaceBetween: 32,
-
-	breakpoints: {
-		1024: {
-			// eslint-disable-next-line no-mixed-spaces-and-tabs
-			slidesPerView: 3, // Number of slides per view when viewport width is 1024px or more
-		},
-	},
-
-	pagination: {
-		el: ".swiper-pagination",
-	},
-});
-
-/*############### SCROLL SECTIONS ACTIVE LINK ###############*/
-// const sections = document.querySelectorAll("section[id]");
-
-// function scrollActive(){
-// 	const scrollY = window.pageYOffset;
-
-// 	sections.forEach(current =>{
-// 		const sectionHeight = current.offsetHeight,
-// 			sectionTop = current.offsetTop - 58,
-// 			sectionId = current.getAttribute("id");
-
-// 		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-// 			document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.add("active-link");
-// 		}else{
-// 			document.querySelector(".nav__menu a[href*=" + sectionId + "]").classList.remove("active-link");
-// 		}
-// 	});
-// }
-// window.addEventListener("scroll", scrollActive);
-
-
-/*############### SHOW SCROLL UP ###############*/
-const scrollUp = () => {
-	const scrollUp = document.getElementById("scroll-up");
-
-	this.scrollY >= 350 ? scrollUp.classList.add("show-scrollup")
-		: scrollUp.classList.remove("show-scrollup");
+		<div class="collection__container container grid">
+			${createCards(data)}
+		</div>
+	`;
 };
 
-window.addEventListener("scroll", scrollUp);
+const createCards = data => {
+	let cards = "";
 
+	data.forEach(item => {
+		if (item.id != productId) {
+			cards += `
+			<article class="collection__card">
+				<div class="collection__card-img">
+					<img src="${item.image}" onclick="location.href = '/products/${item.id}'">
+					<div class="card__img-like">
+						<i class="ri-heart-3-line"></i>
+					</div>
+				</div>
 
-/*############### EMAIL JS ###############*/
+				<div class="collection__card-infos">
+					<h4 class="collection__card-title">
+						${item.name}
+					</h4>
 
+					<p class="collection__card-categorie">
+						${item.categorie}
+					</p>
+				</div>
 
-/*############### DARK AND LIGHT MODE ###############*/
+				<div class="collection__card-actions">
+					<span class="collection__card-price">
+						$${item.price}
+					</span>
 
+					<button class="button small-button button-flex">
+						Order Now
+					</button>
+				</div>
+			</article>
+		`;
+		}
+	});
 
-/*############### SCROLL REVEAL ANIMATION ###############*/
-const sr = ScrollReveal({
-	origin: "top",
-	distance: "60px",
-	duration: 2500,
-	delay: 400,
-	// reset: true
-});
-
-sr.reveal(".swiper-home, .customers__container, .contact__container, .newsletter__container");
-sr.reveal(".category__data, .footer__content, .collection__card", { interval: 100 });
-sr.reveal(".about__data, .artwork__image", { origin: "left" });
-sr.reveal(".about__image, .artwork__data", { origin: "right" });
+	return cards;
+};
