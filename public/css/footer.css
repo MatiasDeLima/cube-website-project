@@ -1,0 +1,70 @@
+/*############### FOOTER ###############*/
+.footer__container {
+  justify-content: center;
+  padding-top: 1rem;
+  row-gap: 3.5rem;
+}
+
+.footer__content-grid {
+  display: grid;
+  grid-template-columns: 92px 110px;
+  gap: 6.5rem;
+}
+
+.content-left,
+.content-rigth {
+  row-gap: 3.25rem;
+}
+
+.footer__description {
+  width: 230px;
+  margin-top: 0.5rem;
+  line-height: 21px;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+
+.footer__title {
+  color: var(--first-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--normal-font-size);
+  margin-bottom: 1rem;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6rem;
+}
+
+.footer__link {
+  color: var(--text-color);
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.footer__link:hover {
+  color: var(--first-color);
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.footer__social-link {
+  color: var(--title-color);
+}
+
+.footer__social-link i {
+  font-size: 1.25rem;
+}
+
+.footer__copy {
+  display: block;
+  text-align: center;
+  font-size: var(--small-font-size);
+  margin-top: 4.5rem;
+}

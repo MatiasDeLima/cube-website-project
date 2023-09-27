@@ -1,0 +1,67 @@
+/*############### 404 PAGE ###############*/
+.notfound__container {
+  padding-top: 3rem;
+  gap: 3rem;
+}
+
+.notfound__title {
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  color: var(--first-color);
+  margin-bottom: 1.25rem;
+}
+
+.notfound__description {
+  line-height: 21px;
+  margin-bottom: 2.75rem;
+  font-weight: var(--font-medium);
+}
+
+.outline__button {
+  display: inline-block;
+  border: 1px solid #bbbcbd;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+
+.outline-flex i {
+  font-size: 1.25rem;
+  color: var(--white-color);
+  transition: 0.3s;
+}
+
+.outline-flex {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.25rem;
+}
+
+.outline-flex:hover i {
+  transform: translateX(0.25rem);
+}
+
+.notfound__image {
+  justify-self: center;
+  border-radius: 500px;
+  display: grid;
+  place-items: center;
+  width: 240px;
+  height: 378px;
+  position: relative;
+  border: 1px solid var(--first-color);
+}
+
+.notfound__image img {
+  mix-blend-mode: luminosity;
+  border-radius: 500px;
+  object-fit: cover;
+  width: 220px;
+  height: 356px;
+}
+
+.notfound__image img:hover {
+  cursor: pointer;
+  mix-blend-mode: normal;
+}
