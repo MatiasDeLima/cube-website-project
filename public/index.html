@@ -171,8 +171,8 @@
         </section>
 
         <!--==================== COLLECTIONS ====================-->
-        <section class="collections section" id="home-collections">
-            <div class="top__actions">
+        <section class="top-collections section">
+            <!-- <div class="top__actions">
                 <h2 class="section__title section__title-center">
                     <span>Top<img src="images/line.svg"></span>
                     Collections
@@ -357,7 +357,7 @@
                         </button>
                     </div>
                 </article>
-            </div>
+            </div> -->
         </section>
 
         <!--==================== ABOUT ====================-->
@@ -673,7 +673,13 @@
     <!--=============== MAIN JS ===============-->
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/customer-swiper.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/index.js"></script>
+
+    <script>
+        getProducts('wlop collection').then(data => createProductCards(data, 'Top Collections', '.top-collections'));
+    </script>
 </body>
 
 </html>

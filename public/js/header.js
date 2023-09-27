@@ -146,3 +146,14 @@ const logout = () => {
 	sessionStorage.clear();
 	location.reload();
 };
+
+/*############### SEARCH BAR ###############*/
+
+let searchButton = document.querySelector(".search-button");
+let searchBox = document.querySelector("/search");
+
+searchButton.addEventListener("click", () => {
+	if(searchBox.value.length) {
+		location.href = `/search/${searchBox.value}`;
+	}
+})

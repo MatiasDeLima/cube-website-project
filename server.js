@@ -302,10 +302,15 @@ app.post("/delete-product", (req, res) => {
 		});
 });
 
-
+// product details page
 app.get("/products/:id", (req, res) => {
 	res.sendFile("product.html", { root: "public" });
 });
+
+// search page
+app.get("/search/:key", (req, res) => {
+	res.sendFile("search.html", { root: "public" });
+})
 
 // 404 page router
 app.get("/404", (req, res) => {
