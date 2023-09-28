@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import bcrypt from "bcryptjs";
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDoc, doc, collection, setDoc, updateDoc, getDocs, query, where, deleteDoc } from "firebase/firestore";
+import { getFirestore, getDoc, doc, collection, setDoc, updateDoc, getDocs, query, where, deleteDoc, limit } from "firebase/firestore";
 
 dotenv.config();
 /*########## FIREBASE CONFIG ##########*/
@@ -253,7 +253,7 @@ app.post("/get-products", (req, res) => {
 	// products pelo id para editar
 	if (id) {
 		docRef = getDoc(doc(products, id));
-	} else if(tag) {
+	} else if (tag) {
 		docRef = getDocs(query(products, where("tags", "array-contains", tag)));
 	} else {
 		docRef = getDocs(query(products, where("email", "==", email)));
@@ -310,6 +310,66 @@ app.get("/products/:id", (req, res) => {
 // search page
 app.get("/search/:key", (req, res) => {
 	res.sendFile("search.html", { root: "public" });
+})
+
+// add review
+app.post("/add-review", (req, res) => {
+	let { headline, review, rate, email, product } = req.body;
+	// console.log(req.body);
+	// res.json('got it');
+
+	// form validation
+	if (!headline.length || !review.length || rate == 0 || email == null || !product) {
+		res.json({ 'alert': 'Fill all the inputs' });
+	}
+
+	// storing in firestore
+	let reviews = collection(db, "reviews");
+	let docName = `review-${email}-${product}`;
+
+	setDoc(doc(reviews, docName), req.body)
+		.then(data => {
+			return res.json('review')
+		})
+		.catch(err => {
+			console.log(err);
+			res.json({ 'alert': 'some err occured' })
+		})
+})
+
+app.post("/get-review", (req, res) => {
+	let { email, product } = req.body;
+
+	let reviews = collection(db, "reviews");
+
+	getDocs(query(reviews, where("product", "==", product)), limit(4))
+	.then(review => {
+		// console.log(review)
+		// res.json('1');
+
+		let reviewArr = [];
+
+		if(review.empty) {
+			return res.json(reviewArr);
+		}
+
+		let userEmail = false;
+
+		review.forEach((item, i) => {
+			let reviewEmail = item.data().email;
+			if(reviewEmail == email) {
+				userEmail = true;
+			}
+			reviewArr.push(item.data())
+		})
+
+		if(!userEmail) {
+			getDoc(doc(reviews, `review=${email}-${product}`))
+			.then(data => reviewArr.push(data.data()))
+		}
+
+		return res.json(reviewArr);
+	})
 })
 
 // 404 page router

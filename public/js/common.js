@@ -19,10 +19,21 @@ const processData = (data) => {
 	if(data.alert) {
 		showFormError(data.alert);
 		// user register session
-	} else if (data.name) {
+	}/* else if (data.name) {
 		sessionStorage.user = JSON.stringify(data);
 		location.replace("/");
 		// admin form
+	}*/else if(data.email) {
+		sessionStorage.user = JSON.stringify(data);
+		// caso eu entre em um produto tente fazer o review mas nao esteja longado
+		// ele redireciona para login e quando voce faz o login te coloca no
+		// produto que voce estava
+		if(location.search.includes("after")) {
+			let pageId = location.search.split('=')[1];
+			location.replace(`/products/${pageId}`);
+		} else {
+			location.replace("/");
+		}
 	} else if (data.seller) {
 		let user = JSON.parse(sessionStorage.user);
 		user.seller = true;
@@ -31,6 +42,9 @@ const processData = (data) => {
 		// add products
 	} else if(data.product) {
 		location.replace("/dashboard");
+	} else if(data == "review") {
+		alert('got the review');
+		location.reload();
 	}
 };
 
