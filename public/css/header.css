@@ -39,16 +39,16 @@
 
 .cart__status {
   position: absolute;
-  top: -2px;
-  right: -3px;
+  top: -4px;
+  right: -8px;
   background-color: var(--red-color);
-  width: 8px;
-  height: 8px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
   border-radius: 50%;
-}
-
-.cart__status-active {
-  display: none;
 }
 
 .nav__user {

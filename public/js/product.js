@@ -7,12 +7,19 @@ let productPrice = document.querySelector(".product__total");
 let productCategorie = document.querySelector(".product__info-category");
 let productImage = document.querySelector(".product__img");
 
+let cartButton = document.querySelector(".add-to-cart-button");
+
 const setData = (data) => {
 	productName.innerHTML = data.name;
 	productImage.src = data.image;
 	productDesc.innerHTML = data.shortDes;
 	productPrice.innerHTML = "$" + data.price;
 	productCategorie.innerHTML = data.categorie;
+
+	cartButton.addEventListener("click", () => {
+		cartButton.innerHTML = add_product_to_cart(data);
+		location.reload();
+	})
 };
 
 const fetchProductData = () => {

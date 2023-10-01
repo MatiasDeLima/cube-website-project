@@ -337,6 +337,7 @@ app.post("/add-review", (req, res) => {
 		})
 })
 
+// get Review
 app.post("/get-review", (req, res) => {
 	let { email, product } = req.body;
 
@@ -370,6 +371,11 @@ app.post("/get-review", (req, res) => {
 
 		return res.json(reviewArr);
 	})
+})
+
+// cart page
+app.get("/cart", (req, res) => {
+	res.sendFile("cart.html", { root: "public" });
 })
 
 // 404 page router

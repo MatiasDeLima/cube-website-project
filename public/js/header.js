@@ -10,7 +10,7 @@ const createHeader = () => {
 			<div class="nav__menu" id="nav-menu">
 				<ul class="nav__list">
 					<li class="nav__item">
-						<a href="#" class="nav__link">Home</a>
+						<a href="/" class="nav__link">Home</a>
 					</li>
 
 					<li class="nav__item">
@@ -37,7 +37,7 @@ const createHeader = () => {
 
 			<div class="header__buttons">
 				<div class="nav__cart" id="cart-button">
-					<span class="cart__status cart__status-active"></span>
+					<span class="cart__status"></span>
 					<i class="ri-shopping-bag-line"></i>
 				</div>
 
@@ -95,19 +95,11 @@ const linkAction = () => {
 navLink.forEach(n => n.addEventListener("click", linkAction));
 
 /*############### CART MENU ###############*/
-const cartMenu = document.getElementById("cart-menu"),
-	cartToggle = document.getElementById("cart-button"),
-	cartClose = document.getElementById("cart-close");
+const cartToggle = document.getElementById("cart-button")
 
 if(cartToggle) {
 	cartToggle.addEventListener("click", () => {
-		cartMenu.classList.add("show-cart");
-	});
-}
-
-if(cartClose) {
-	cartClose.addEventListener("click", () => {
-		cartMenu.classList.remove("show-cart");
+		location.href = "/cart"
 	});
 }
 
@@ -157,3 +149,23 @@ const logout = () => {
 // 		location.href = `/search/${searchBox.value}`;
 // 	}
 // })
+
+// header cart count 
+
+const updateNavCartCounter = () => {
+	let cartCounter = document.querySelector(".cart__status")
+
+	let cartItem = JSON.parse(localStorage.getItem("cart"));
+
+	if(cartItem == null) {
+		cartCounter.innerHTML = "0";
+	} else {
+		if(cartItem.length > 9) {
+			cartCounter.innerHTML = "9+";
+		} else if(cartItem.length <= 9){
+			cartCounter.innerHTML = `${cartItem.length}`;
+		}
+	}
+}
+
+updateNavCartCounter();
