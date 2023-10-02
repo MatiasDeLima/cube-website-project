@@ -15,14 +15,14 @@ const getProducts = (tag) => {
 let productId = null;
 
 // create collections cards
-const createProductCards = (data, title, ele) => {
+const createProductCards = (data, title, sub, ele) => {
 	// console.log(data);
 	let container = document.querySelector(`${ele}`);
 	container.innerHTML += `
 		<div class="top__actions">
 			<h2 class="section__title section__title-center">
 				<span>${title}<img src="../images/line.svg"></span>
-				Collections
+				${sub}
 			</h2>
 
 			<a href="#" class="outline__button button-flex">

@@ -34,7 +34,7 @@ const fetchProductData = () => {
 			// funcao de setar os novos dados
 			setData(data);
 			// eslint-disable-next-line no-undef
-			getProducts(data.tags[0]).then(data => createProductCards(data, "Simillar collections", ".collections"));
+			getProducts(data.tags[0]).then(data => createProductCards(data, "Simillar", "collections", ".collections"));
 		})
 		.catch(err => {
 			console.log(err);

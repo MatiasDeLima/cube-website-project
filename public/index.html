@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.css">
 
     <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="css/load.css">
     <link rel="stylesheet" href="css/index.css">
 
     <title>Cube Art Store</title>
@@ -22,7 +23,15 @@
 
 <body>
     <!--==================== LOAD ====================-->
+    <div class="loading__page" id="loading-page">
+        <div class="loading__container">
+            <div class="circular__progress">
+                <img src="images/decoration-star.svg" alt="loading image">
+            </div>
 
+            <span class="loading__number">0%</span>
+        </div>
+    </div>
     
     <!--==================== HEADER ====================-->
     <header class="header" id="header"></header>
@@ -664,6 +673,7 @@
     <script src="/js/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.js"></script>
 
     <!--=============== MAIN JS ===============-->
+    <script src="js/load.js"></script>
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/customer-swiper.js"></script>
@@ -671,7 +681,7 @@
     <script src="js/index.js"></script>
 
     <script>
-        getProducts('wlop collection').then(data => createProductCards(data, 'Top Collections', '.top-collections'));
+        getProducts('wlop collection').then(data => createProductCards(data, 'Top', 'Collections', '.top-collections'));
     </script>
 </body>
 
