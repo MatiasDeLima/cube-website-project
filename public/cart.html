@@ -15,11 +15,23 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/load.css">
     <link rel="stylesheet" href="./css/cart.css">
 
     <title>Cube Art Store - Product</title>
 </head>
 <body>
+
+    <!--==================== LOAD ====================-->
+    <div class="loading__page" id="loading-page">
+        <div class="loading__container">
+            <div class="circular__progress">
+                <img src="images/decoration-star.svg" alt="loading image">
+            </div>
+
+            <span class="loading__number">0%</span>
+        </div>
+    </div>
 
     <!--==================== HEADER ====================-->
     <header class="header" id="header"></header>
@@ -76,6 +88,7 @@
     <footer class="footer section"></footer>
 
 
+    <script src="./js/load.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
     <script src="./js/main.js"></script>
