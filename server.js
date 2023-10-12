@@ -298,7 +298,7 @@ app.post("/delete-product", (req, res) => {
 		.then(data => {
 			res.json("success");
 		}).catch(err => {
-			res.json("err");
+			res.json("err", err);
 		});
 });
 
@@ -344,38 +344,43 @@ app.post("/get-review", (req, res) => {
 	let reviews = collection(db, "reviews");
 
 	getDocs(query(reviews, where("product", "==", product)), limit(4))
-	.then(review => {
-		// console.log(review)
-		// res.json('1');
+		.then(review => {
+			// console.log(review)
+			// res.json('1');
 
-		let reviewArr = [];
+			let reviewArr = [];
 
-		if(review.empty) {
-			return res.json(reviewArr);
-		}
-
-		let userEmail = false;
-
-		review.forEach((item, i) => {
-			let reviewEmail = item.data().email;
-			if(reviewEmail == email) {
-				userEmail = true;
+			if (review.empty) {
+				return res.json(reviewArr);
 			}
-			reviewArr.push(item.data())
+
+			let userEmail = false;
+
+			review.forEach((item, i) => {
+				let reviewEmail = item.data().email;
+				if (reviewEmail == email) {
+					userEmail = true;
+				}
+				reviewArr.push(item.data())
+			})
+
+			if (!userEmail) {
+				getDoc(doc(reviews, `review=${email}-${product}`))
+					.then(data => reviewArr.push(data.data()))
+			}
+
+			return res.json(reviewArr);
 		})
-
-		if(!userEmail) {
-			getDoc(doc(reviews, `review=${email}-${product}`))
-			.then(data => reviewArr.push(data.data()))
-		}
-
-		return res.json(reviewArr);
-	})
 })
 
 // cart page
 app.get("/cart", (req, res) => {
 	res.sendFile("cart.html", { root: "public" });
+})
+
+// checkout page
+app.get("/checkout", (req, res) => {
+	res.sendFile("checkout.html", { root: "public" });
 })
 
 // 404 page router

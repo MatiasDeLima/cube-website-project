@@ -164,6 +164,7 @@
   top: calc(var(--header-height) + 0.5rem);
   background-color: var(--bg-glass-color);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 1.25rem 1rem;
   border-radius: 0.25rem;
   box-shadow: 0 0 12px hsla(0, 0%, 0%, 0.192);

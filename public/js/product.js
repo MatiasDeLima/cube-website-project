@@ -44,7 +44,10 @@ const fetchProductData = () => {
 };
 
 // let productId = null;
+// necessario pra quando usar product id 
+// url /products/:id
 if (location.pathname != "/add-product") {
+	// adiciona o id do product na url / uri
 	productId = decodeURI(location.pathname.split("/").pop());
 	fetchProductData();
 }

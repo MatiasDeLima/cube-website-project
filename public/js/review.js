@@ -28,7 +28,7 @@ addReviewButton.addEventListener("click", () => {
         // guarda a pagina pra quando fizer login
         location.href = `/login?after_page=${productId}`
     } else {
-        if(!reviewHadline.value.length || !reviewText.value.length || rate == 0) {
+        if(!reviewHadline.value.length || !reviewText.value.length || rae == 0) {
             showFormError("Fill all the inputs");
         } else if(reviewHadline.value.length > 50) {
             showFormError("Headline should not be more then 50 letters");

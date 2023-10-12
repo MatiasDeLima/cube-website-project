@@ -4,6 +4,8 @@ let user = JSON.parse(sessionStorage.user || null);
 window.onload = () => {
 	if(user == null) {
 		location.replace("/login");
+	} else if(!user.admin) {
+		location.replace("/admin");
 	}
 };
 
@@ -33,7 +35,6 @@ let imagePath = []; // default image
 uploadInput.addEventListener("change", () => {
 	const file = uploadInput.files[0];
 	// console.log(file)
-	let imageUrl;
 
 	if(file.type.includes("image")) {
 		// means its an image
@@ -165,6 +166,7 @@ const setFormData = (data) => {
 // edit page editar produto
 let productId = null;
 // no console do navergado se quiser ver o path location.pathname
+// para ir para a pagina de edite product pelo id
 if(location.pathname != "/add-product") {
 	productId = decodeURI(location.pathname.split("/").pop());
 	fetchProductData();
