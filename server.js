@@ -254,7 +254,7 @@ app.post("/get-products", (req, res) => {
 	if (id) {
 		docRef = getDoc(doc(products, id));
 	} else if (tag) {
-		docRef = getDocs(query(products, where("tags", "array-contains", tag)));
+		docRef = getDocs(query(products, where("tags", "array-contains", tag), limit(5)));
 	} else {
 		docRef = getDocs(query(products, where("email", "==", email)));
 	}

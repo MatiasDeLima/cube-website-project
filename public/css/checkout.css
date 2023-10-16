@@ -1,0 +1,5 @@
+.adress__container {
+    grid-template-columns: 300px;
+    justify-content: center;
+    padding-top: 3rem;
+}

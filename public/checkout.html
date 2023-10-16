@@ -13,6 +13,7 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/checkout.css">
     <link rel="stylesheet" href="css/index.css">
 
@@ -34,34 +35,7 @@
         </h2>
 
         <div class="cart__container container grid">
-            <div class="cart__content grid">
-                <!-- <h1>No products</h1> -->
-                <!-- <div class="cart__card">
-                    <div class="cart__card-data">
-                        <div class="cart__image">
-                            <img src="./images/arte-11.png">
-                        </div>
-
-                        <div class="cart__data">
-                            <h4 class="cart__title">Wlop Art</h4>
-                            <p class="cart__categorie">Wlop collection</p>
-                            <h4 class="cart__price">$24.00</h4>
-                        </div>
-                    </div>
-
-                    <div class="cart__card-actions">
-                        <button class="cart__remove-button">
-                            <i class="ri-delete-bin-line"></i>
-                        </button>
-
-                        <div class="cart__count-buttons">
-                            <button class="cart__minus"><i class="ri-subtract-line"></i></button>
-                            <span class="cart__count">0</span>
-                            <button class="cart__plus"><i class="ri-add-line"></i></button>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+            <div class="cart__content grid"></div>
 
             <div class="cart__checkout">
                 <h4 class="cart__checkout-title">Your total bill.</h4>
@@ -71,6 +45,22 @@
                 </h3>
 
                 <button onclick="location.href = '/checkout' " class="button checkout__button">Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="adress section">
+        <h2 class="section__title artwork__title section__title-center">
+            <span>Checkout<img src="images/line.svg"></span>
+        </h2>
+
+        <div class="adress__container grid">
+            <div class="form__inputs">
+                <input type="text" placeholder="Enter You Street...">
+                <input type="text" placeholder="Enter You City...">
+                <input type="text" placeholder="Enter You State...">
+                <input type="text" placeholder="Enter You Pincode...">
+                <input type="text" placeholder="Enter You Landmark...">
             </div>
         </div>
     </section>

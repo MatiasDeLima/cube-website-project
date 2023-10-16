@@ -673,15 +673,16 @@
     <script src="/js/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.js"></script>
 
     <!--=============== MAIN JS ===============-->
+    <script src="js/home.js"></script>
     <script src="js/load.js"></script>
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/customer-swiper.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <script src="js/index.js"></script>
 
     <script>
-        getProducts('wlop collection').then(data => createProductCards(data, 'Top', 'Collections', '.top-collections'));
+        getHomeProducts('wlop collection').then(data => createHomeProductCards(data, 'Top', 'Collections', '.top-collections'));
     </script>
 </body>
 

@@ -1,22 +1,20 @@
-
-
-const getProducts = (tag) => {
-	return fetch("/get-products", {
-		method: "POST",
-		headers: new Headers({ "Content-Type": "application/json" }),
-		body: JSON.stringify({ tag: tag })
-	})
-		.then(res => res.json())
-		.then(data => {
-			return data;
-		});
+const getHomeProducts = (tag) => {
+    return fetch("/get-products", {
+        method: "POST",
+        headers: new Headers({ "Content-Type": "application/json" }),
+        body: JSON.stringify({ tag: tag })
+    })
+        .then(res => res.json())
+        .then(data => {
+            return data;
+        });
 };
 
-// create collections cards
-const createProductCards = (data, title, sub, ele) => {
-	// console.log(data);
-	let container = document.querySelector(`${ele}`);
-	container.innerHTML += `
+let productId = null;
+
+const createHomeProductCards = (data, title, sub, ele) => {
+    let container = document.querySelector(`${ele}`);
+    container.innerHTML += `
 		<div class="top__actions">
 			<h2 class="section__title section__title-center">
 				<span>${title}<img src="../images/line.svg"></span>
@@ -28,17 +26,18 @@ const createProductCards = (data, title, sub, ele) => {
 			</a>
 		</div>
 		<div class="collection__container container grid">
-			${createCards(data)}
+			${createHomeCards(data)}
 		</div>
 	`;
 };
 
-const createCards = (data) => {
-	let cards = ""; // this will contain card HTML
+const createHomeCards = (data) => {
+    let cards = ""; // this will contain card HTML
+    let cardsRendered = 0;
 
-	data.forEach(item => {
-		if (item.id != productId) {
-			cards += `
+    data.forEach(item => {
+        if (item.id != productId && cardsRendered < 4) {
+            cards += `
 				<article class="collection__card">
 					<div class="collection__card-img">
 						<img src="${item.image}" onclick="location.href = '/products/${item.id}'">
@@ -68,29 +67,8 @@ const createCards = (data) => {
 					</div>
 				</article>
 			`;
-		}
-	})
-	return cards;
+            cardsRendered++; 
+        }
+    })
+    return cards;
 };
-
-// cart function
-const add_product_to_cart = product => {
-	updateNavCartCounter();
-	let cart = JSON.parse(localStorage.getItem("cart"));
-
-	if (cart == null) {
-		cart = [];
-	}
-
-	product = {
-		item: 1,
-		name: product.name,
-		price: product.price,
-		shortDes: product.shortDes,
-		image: product.image
-	}
-
-	cart.push(product);
-	localStorage.setItem("cart", JSON.stringify(cart));
-	return "added "
-}
