@@ -4,7 +4,7 @@ let user = JSON.parse(sessionStorage.user || null);
 window.onload = () => {
 	if(user == null) {
 		location.replace("/login");
-	} else if(!user.admin) {
+	} else if(!user.seller) {
 		location.replace("/admin");
 	}
 };
