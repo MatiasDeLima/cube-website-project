@@ -580,20 +580,20 @@
             </h2>
 
             <div class="contact__container container grid">
-                <form class="contact__form">
+                <form class="contact__form" id="contact-form">
                     <div class="contact__input-flex">
-                        <input type="name" class="contact__input" placeholder="Enter Your Name">
-                        <input type="email" class="contact__input" placeholder="Enter Your E-mail">
+                        <input name="user_name" type="name" class="contact__input" placeholder="Enter Your Name" id="contact-name">
+                        <input name="user_email" type="email" class="contact__input" placeholder="Enter Your E-mail" id="contact-email">
                     </div>
 
-                    <textarea name="" cols="30" rows="10" class="contact__input text__area"
-                        placeholder="Enter Your Question..."></textarea>
+                    <textarea name="user_message" cols="30" rows="10" class="contact__input text__area"
+                        placeholder="Enter Your Question..." id="contact-message"></textarea>
 
-                    <span class="contact__message">
-                        Message sent successfully ✅
+                    <span class="contact__message green-color" id="contact-alert">
+                        <!-- Message sent successfully ✅ -->
                     </span>
 
-                    <button class="button button-flex margin-auto">
+                    <button type="submit" class="button button-flex margin-auto">
                         Send Message <i class="ri-arrow-right-s-line"></i>
                     </button>
                 </form>
@@ -672,7 +672,11 @@
     <!--=============== SWIPER JS ===============-->
     <script src="/js/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.js"></script>
 
+    <!--=============== EMAIL JS ===============-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!--=============== MAIN JS ===============-->
+    <script src="js/emailjs.js"></script>
     <script src="js/home.js"></script>
     <script src="js/load.js"></script>
     <script src="js/header.js"></script>

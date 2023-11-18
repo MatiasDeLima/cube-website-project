@@ -1,0 +1,5 @@
+.search__container {
+    padding-top: 4rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}

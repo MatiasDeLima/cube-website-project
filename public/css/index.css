@@ -139,6 +139,15 @@ button {
   justify-content: center;
 }
 
+/* Status color */
+.red-color {
+  color: var(--red-color);
+}
+
+.green-color {
+  color: var(--green-color);
+}
+
 /*############### LAYOUT ###############*/
 .container {
   max-width: 1120px;
@@ -590,6 +599,7 @@ button {
   font-size: var(--normal-font-size);
   resize: none;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .contact__input {
@@ -597,12 +607,12 @@ button {
   border: 1px solid var(--text-color-light);
   padding: 1rem;
   font-weight: var(--font-medium);
+  color: var(--text-color);
 }
 
 .contact__message {
   display: block;
   font-size: var(--small-font-size);
-  color: var(--white-color);
   margin-bottom: 3rem;
 }
 
