@@ -2,7 +2,21 @@ import express from "express";
 import dotenv from "dotenv";
 import bcrypt from "bcryptjs";
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDoc, doc, collection, setDoc, updateDoc, getDocs, query, where, deleteDoc, limit } from "firebase/firestore";
+import {
+	getFirestore,
+	getDoc,
+	doc,
+	collection,
+	setDoc,
+	updateDoc,
+	getDocs,
+	query,
+	where,
+	deleteDoc,
+	limit
+} from "firebase/firestore";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 dotenv.config();
 /*########## FIREBASE CONFIG ##########*/
@@ -27,49 +41,46 @@ const port = process.env.PORT || 8000;
 app.use(express.json());
 app.use(express.static("public"));
 
-// aws
-import aws from "aws-sdk";
-
 // aws setup
 const region = "sa-east-1"; // aws => propriedades
 const bucketName = "cube-files-jsga-2324";
 const accessKeyId = process.env.AWS_ACCESS_KEY;
-const secretAcessKey = process.env.AWS_SECRET_KEY;
+const secretAccessKey = process.env.AWS_SECRET_KEY;
 
-/*aws.config.update({
-	region,
-	credentials: new aws.Credentials(accessKeyId, secretAcessKey)
-})*/
-
-// init s3
-const s3 = new aws.S3({
+const s3 = new S3Client({
 	region: region,
-	accessKeyId: accessKeyId,
-	secretAccessKey: secretAcessKey
-});
+	credentials: {
+		accessKeyId,
+		secretAccessKey
+	}
+})
 
-//generate image url
+// Generate image url
 async function generateURL() {
-	let date = new Date();
-
+	const date = new Date();
 	const imageName = `${date.getTime()}.jpeg`;
 
 	const params = {
 		Bucket: bucketName,
 		Key: imageName,
-		Expires: 300,
 		ContentType: "image/jpeg"
 	};
 
-	const uploadURL = await s3.getSignedUrlPromise("putObject", params);
-	return uploadURL;
+	const expiresIn = 300;
+	const command = new PutObjectCommand(params);
 
+	const signedUrl = await getSignedUrl(s3, command, { expiresIn });
+
+	return signedUrl;
 }
 
 app.get("/s3url", (req, res) => {
-	generateURL().then(url => res.json(url));
+	generateURL().then(url => res.json(url))
+		.catch((error) => {
+			console.error("Erro ao gerar a URL:", error);
+			res.json("Error ao gerar a URL")
+		});
 });
-
 
 /*########## ROUTES ##########*/
 // home page router

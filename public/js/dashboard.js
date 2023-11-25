@@ -1,9 +1,6 @@
-
+// user validation
 let user = JSON.parse(sessionStorage.user || null);
 
-// impede que nao ta autorizado accessar a dashboard
-// se nao tiver longado
-//se nao for admin
 if (user == null) {
 	location.replace("/login");
 } else if (!user.seller) {
@@ -13,15 +10,14 @@ if (user == null) {
 // insere nome do user na dashboard
 document.addEventListener("DOMContentLoaded", function () {
 	// Seu código aqui
-	let greeting = document.getElementById("#seller-greeting");
+	let greeting = document.getElementById("seller-greeting");
 	greeting.innerHTML += user.name;
 });
 
 // dashboard action
-
 let noProductsDiv = document.querySelector(".no__products");
 
-// poste products actives in dashboard
+// adiciona produtos criados a dashboard
 const setupProducts = () => {
 	fetch("/get-products", {
 		method: "POST",

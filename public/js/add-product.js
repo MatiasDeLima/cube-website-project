@@ -1,32 +1,12 @@
-
 let user = JSON.parse(sessionStorage.user || null);
 
 window.onload = () => {
 	if(user == null) {
 		location.replace("/login");
-	} else if(!user.admin) {
+	} else if(!user.seller) {
 		location.replace("/admin");
 	}
 };
-
-// adiciona o nome do placeholder no elemento que editable
-let editables = [...document.querySelectorAll("*[contenteditable=\"true\"]")];
-
-editables.map((element) => {
-	let placehoder = element.getAttribute("data-placeholder");
-	element.innerHTML = placehoder;
-	element.addEventListener("focus", () => {
-		if(element.innerHTML === placehoder) {
-			element.innerHTML = "";
-		}
-	});
-
-	element.addEventListener("focusout", () => {
-		if(!element.innerHTML.length) {
-			element.innerHTML = placehoder;
-		}
-	});
-});
 
 // image upload
 let uploadInput = document.querySelector("#upload-image");
@@ -59,29 +39,26 @@ uploadInput.addEventListener("change", () => {
 	}
 });
 
-// form submission enviar o conteudo do produto
-
+// form selectores
 let addProductBtn = document.querySelector(".add-product-btn");
+let productName = document.querySelector("#product-name");
+let productCategorie = document.querySelector("#product-categorie");
+let productDes = document.querySelector("#product-description");
+let productPrice = document.querySelector("#product-price");
+let productTags = document.querySelector("#product-tags");
 
-let productName = document.querySelector(".product__info-title");
-let categorie = document.querySelector(".product__info-category");
-let shortDes = document.querySelector(".product__info-description");
-let price = document.querySelector(".product__total");
-//let details = document.querySelector('.');
-let tags = document.querySelector(".product__tag");
-
+// form validation
 addProductBtn.addEventListener("click", () => {
-
 	//verification
-	if(productName.innerHTML == productName.getAttribute("data-placeholder")){
+	if(!productName.value.length){
 		showFormError("🤷‍♂️ Should enter product name!");
-	}  else if (categorie.innerHTML == categorie.getAttribute("data-placeholder")) {
-		showFormError("🤷‍♂️ Should enter categorie name!");
-	} else if (shortDes.innerHTML == shortDes.getAttribute("data-placeholder")) {
+	}  else if (!productCategorie.value.length) {
+		showFormError("🤷‍♂️ Should enter categorie!");
+	} else if (productDes.value.length < 80) {
 		showFormError("🤷‍♂️ Short des must be 80 letters long!");
-	} else if (price.innerHTML == price.getAttribute("data-placeholder") || !Number(price.innerHTML)) {
+	} else if (!productPrice.value.length || !Number(productPrice.value)) {
 		showFormError("🤷‍♂️ Enter valid price!");
-	} else if (tags.innerHTML == tags.getAttribute("data-placeholder")) {
+	} else if (!productTags.value.length) {
 		showFormError("🤷‍♂️ Enter tags!");
 	} else {
 		// submit this form
@@ -97,14 +74,14 @@ addProductBtn.addEventListener("click", () => {
 
 // formato do produto a ser mandado para o server
 const productData = () => {
-	let tagsArr = tags.innerText.split(",");
+	let tagsArr = productTags.innerText.split(",");
 	tagsArr.forEach((item, i) => tagsArr[i].trim().toLowerCase());
 
 	return {
-		name: productName.innerText,
-		categorie: categorie.innerText,
-		shortDes: shortDes.innerText,
-		price: price.innerText,
+		name: productName.value,
+		categorie: productCategorie.value,
+		shortDes: productDes.value,
+		price: productPrice.value,
 		tags: tagsArr,
 		image: imagePath,
 		email: JSON.parse(sessionStorage.user).email,
@@ -115,6 +92,7 @@ const productData = () => {
 // draft btn
 let draftButton = document.querySelector(".draft-btn");
 
+// draft function
 draftButton.addEventListener("click", () => {
 	if(!productName.innerHTML.length || productName.innerHTML == productName.getAttribute("data-placeholder")) {
 		showFormError("Enter product name atleast");
@@ -128,7 +106,6 @@ draftButton.addEventListener("click", () => {
 		sendData("/add-product", data);
 	}
 });
-
 
 // edit page
 
@@ -154,10 +131,10 @@ const fetchProductData = () => {
 // para serem editados
 const setFormData = (data) => {
 	productName.innerHTML = data.name;
-	categorie.innerHTML = data.categorie;
-	shortDes.innerHTML = data.shortDes;
-	price.innerHTML = data.price;
-	tags.innerHTML = data.tags;
+	productCategorie.innerHTML = data.categorie;
+	productDes.innerHTML = data.shortDes;
+	productPrice.innerHTML = data.price;
+	productTags.innerHTML = data.tags;
 
 	let productImg = document.querySelector(".product-image");
 	productImg.src = imagePath = data.image;
