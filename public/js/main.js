@@ -1,6 +1,7 @@
 
 
 const getProducts = (tag) => {
+	// console.log(tag);
 	return fetch("/get-products", {
 		method: "POST",
 		headers: new Headers({ "Content-Type": "application/json" }),
@@ -8,6 +9,7 @@ const getProducts = (tag) => {
 	})
 		.then(res => res.json())
 		.then(data => {
+			// console.log(data);
 			return data;
 		});
 };

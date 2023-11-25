@@ -1,3 +1,5 @@
+
+
 const getHomeProducts = (tag) => {
     return fetch("/get-products", {
         method: "POST",
@@ -72,3 +74,5 @@ const createHomeCards = (data) => {
     })
     return cards;
 };
+
+getHomeProducts('wlop collection').then(data => createHomeProductCards(data, 'Top', 'Collections', '.top-collections'));

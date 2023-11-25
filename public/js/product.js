@@ -30,20 +30,21 @@ const fetchProductData = () => {
 	})
 		.then(res => res.json())
 		.then(data => {
-			// console.log(data);
+			console.log(data.tags);
 			// funcao de setar os novos dados
 			setData(data);
 			// eslint-disable-next-line no-undef
+			// pega a primeira tag de cada produto
 			getProducts(data.tags[0]).then(data => createProductCards(data, "Simillar", "collections", ".collections"));
 		})
 		.catch(err => {
-			console.log(err);
+			console.Error("erro a obter dados", err);
 			// alert("no product found");
 			// location.replace("/404");
 		});
 };
 
-// let productId = null;
+let productId = null;
 // necessario pra quando usar product id 
 // url /products/:id
 if (location.pathname != "/add-product") {
