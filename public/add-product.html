@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--=============== FAVICON ===============-->
+    <!--################# FAVICON #################-->
     <link rel="shortcut icon" href="images/favi-icon.png" type="image/x-icon">
 
-    <!--=============== REMIXICONS ===============-->
+    <!--################# REMIXICONS #################-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!--=============== CSS ===============-->
+    <!--################# CSS #################-->
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/product.css">
-    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/formVersion.css">
+    <!-- <link rel="stylesheet" href="../css/form.css"> -->
     <link rel="stylesheet" href="../css/add-product.css">
-    
+
 
     <title>Cube Art Store</title>
 </head>
@@ -25,7 +26,7 @@
     <!--############### MAIN ###############-->
     <main class="main">
         <!--############### PRODUCT ###############-->
-        <section class="section product container">
+        <section class="section add__product container">
             <h2 class="section__title section__title-center ">
                 <span>Add product<img src="../images/line.svg"></span>
             </h2>
@@ -34,68 +35,61 @@
                 <p>Some error occured</p>
             </div>
 
-            <div class="product__container grid">
-                <!-- upload image section -->
+            <div class="add__product-container grid">
                 <div class="product__image upload__content">
                     <input type="file" id="upload-image" accept="image/png, image/jpeg" hidden>
-                    <label for="upload-image" class="upload-orverlay"><span><i class="ri-upload-cloud-line"></i></span>Upload image</label>
+                    <label for="upload-image" class="upload-orverlay"><span><i
+                                class="ri-upload-cloud-line"></i></span>Upload image</label>
                     <img class="product-image">
                 </div>
 
-                <div class="product__info">
-                    <div class="product__info-top">
-                        <div class="info__top-data">
-                            <h3 class="product__info-title" contenteditable="true" data-placeholder="enter a product name">
-                                Ethereal Nightfall
-                            </h3>
-
-                            <p class="product__info-category" contenteditable="true" data-placeholder="enter a product categorie">
-                                Wlop art collection
-                            </p>
-                        </div>
-
-                        <div class="product__info-button disable">
-                            <i class="ri-heart-3-line"></i>
+                <div class="add__product-form">
+                    <div>
+                        <h3 class="input__title">Product name</h3>
+                        <div class="form__input">
+                            <i class="ri-quill-pen-line"></i>
+                            <input type="text" class="input" placeholder="Enter a product name..." id="product-name">
                         </div>
                     </div>
 
-                    <p class="product__info-description" contenteditable="true" data-placeholder="Enter a product description">
-                        captures the mesmerizing beauty of a fantastical world
-                        cloaked in the shroud of twilight. In this enchanting scene,
-                        a lone figure stands atop a crumbling tower, silhouetted against
-                        the radiant, star-studded sky
-                    </p>
-
-                    <div class="product__review disable">
-                        <ul class="product__stars">
-                            <i class="ri-star-s-fill"></i>
-                            <i class="ri-star-s-fill"></i>
-                            <i class="ri-star-s-fill"></i>
-                            <i class="ri-star-s-fill"></i>
-                            <i class="ri-star-s-fill"></i>
-                        </ul>
-
-                        <p class="product__review-text"><span>(23213)</span>Reviews</p>
+                    <div>
+                        <h3 class="input__title">Categorie</h3>
+                        <div class="form__input">
+                            <i class="ri-pen-nib-line"></i>
+                            <input type="text" class="input" placeholder="Enter a product categorie..." id="product-categorie">
+                        </div>
                     </div>
 
-                    <div class="product__info-actions">
-                        <h3 class="product__total" contenteditable="true" data-placeholder="price whithout $">
-                            $43.00
-                        </h3>
+                    <div>
+                        <h3 class="input__title">Description</h3>
+                        <div class="form__input">
+                            <i class="ri-chat-3-line"></i>
+                            <input type="text" class="input" placeholder="Enter a product description..." id="product-description">
+                        </div>
+                    </div>
 
-                        <button class="add-to-cart-button button disable">Add to cart<i class="ri-arrow-right-s-line"></i></button>
+
+                    <div>
+                        <h3 class="input__title">Price</h3>
+                        <div class="form__input">
+                            <i class="ri-money-dollar-circle-line"></i>
+                            <input type="text" class="input" placeholder="Price whithout $..." id="product-price">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="input__title">Tags</h3>
+                        <div class="form__input">
+                            <i class="ri-file-copy-2-line"></i>
+                            <input type="text" class="input" placeholder="Enter a product tags..." id="product-tags">
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="product__tags">
-                    <h3>tags</h3>
-                    <p class="product__tag" contenteditable="true" data-placeholder="enter a product name">3 tags</p>
-                </div>
-
-                <div class="btn-wrapper">
-                    <button class="add-product-btn button">Add product</button>
-                    <button class="draft-btn button">Save draft</button>
-                </div>
+            <div class="form__buttons">
+                <button class="add-product-btn button">Add product</button>
+                <button class="draft-btn button">Save draft</button>
             </div>
         </section>
     </main>

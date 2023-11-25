@@ -1024,3 +1024,9 @@ button {
     padding-block: 7rem 2rem;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  .collection__container {
+    grid-template-columns: repeat(4, 260px);
+  }
+}
