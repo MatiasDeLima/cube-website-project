@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--=============== FAVICON ===============-->
+    <!--############### FAVICON ###############-->
     <link rel="shortcut icon" href="images/favi-icon.png" type="image/x-icon">
 
-    <!--=============== REMIXICONS ===============-->
+    <!--############### REMIXICONS ###############-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!--=============== SWIPER CSS ===============-->
+    <!--############### SWIPER CSS ###############-->
     <link rel="stylesheet" href="css/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.css">
 
-    <!--=============== CSS ===============-->
+    <!--############### CSS ###############-->
     <link rel="stylesheet" href="css/load.css">
+    <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/index.css">
 
     <title>Cube Art Store</title>
 </head>
 
 <body>
-    <!--==================== LOAD ====================-->
+    <!--#################### LOAD ####################-->
     <div class="loading__page" id="loading-page">
         <div class="loading__container">
             <div class="circular__progress">
@@ -33,11 +34,11 @@
         </div>
     </div>
     
-    <!--==================== HEADER ====================-->
+    <!--#################### HEADER ####################-->
     <header class="header" id="header"></header>
 
     <main class="main">
-        <!--==================== HOME ====================-->
+        <!--#################### HOME ####################-->
         <section class="home container section" id="hero">
             <div class="swiper swiper-home">
                 <div class="swiper-wrapper">
@@ -172,7 +173,7 @@
             </div>
         </section>
 
-        <!--==================== COLLECTIONS ====================-->
+        <!--#################### COLLECTIONS ####################-->
         <section class="top-collections section">
             <!-- <div class="top__actions">
                 <h2 class="section__title section__title-center">
@@ -362,7 +363,7 @@
             </div> -->
         </section>
 
-        <!--==================== ABOUT ====================-->
+        <!--#################### ABOUT ####################-->
         <section class="section about" id="about">
             <div class="about__container container grid">
                 <div class="about__data">
@@ -392,7 +393,7 @@
             </div>
         </section>
 
-        <!--==================== CUSTOMERS ====================-->
+        <!--#################### CUSTOMERS ####################-->
         <section class="section customers" id="trick">
             <h2 class="section__title section__title-center">
                 <span>Customers<img src="images/line.svg"></span>
@@ -573,7 +574,7 @@
             </div>
         </section>
 
-        <!--==================== CONTACT ====================-->
+        <!--#################### CONTACT ####################-->
         <section class="section contact" id="contact">
             <h2 class="section__title section__title-center">
                 <span>Contact us<img src="images/line.svg"></span>
@@ -600,7 +601,7 @@
             </div>
         </section>
 
-        <!--==================== ARTWORK ====================-->
+        <!--#################### ARTWORK ####################-->
         <section class="section artwork" id="artwork">
             <div class="artwork__container container grid">
                 <div class="artwork__data">
@@ -631,7 +632,7 @@
             </div>
         </section>
 
-        <!--==================== OUR NEWSLETTER ====================-->
+        <!--#################### OUR NEWSLETTER ####################-->
         <section class="section newsletter">
             <div class="newsletter__container container grid">
                 <div class="newsletter__data">
@@ -656,26 +657,61 @@
                 </div>
             </div>
         </section>
+
+        <!--#################### ADD TESTIMONIALS REVIEW ####################-->
+        <section class="add__testimonials section" id="add-testimonials">
+            <div class="add-review__container container grid">
+                <h2 class="section__title">
+                    <span>Add a Review<img src="../images/line.svg"></span>
+                </h2>
+
+                <div class="add-review__content grid">
+                    <div class="add-review__form">
+                        <input type="text" placeholder="Review Headline" class="review-headline">
+
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Review" class="review-text"></textarea>
+                    </div>
+                    
+                    <span class="form__error"></span>
+                    
+                    <div class="add-review__star">
+                        <p class="add-review__title">
+                            How much you like the products?
+                        </p>
+                        
+                        <ul class="add-review__stars">
+                            <i class="ri-star-s-line rating-star"></i>
+                            <i class="ri-star-s-line rating-star"></i>
+                            <i class="ri-star-s-line rating-star"></i>
+                            <i class="ri-star-s-line rating-star"></i>
+                            <i class="ri-star-s-line rating-star"></i>
+                        </ul>
+                    </div>
+                    
+                    <button id="review-button" class="outline__button margin-auto">Add Review</button>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!--==================== FOOTER ====================-->
+    <!--#################### FOOTER ####################-->
     <footer class="footer section"></footer>
 
-    <!--=============== SCROLL UP ===============-->
+    <!--############### SCROLL UP ###############-->
     <a href="#hero" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
 
-    <!--=============== SCROLL REVEAL ===============-->
+    <!--############### SCROLL REVEAL ###############-->
     <script src="/js/raw.githubusercontent.com_jlmakes_scrollreveal_master_dist_scrollreveal.min.js"></script>
 
-    <!--=============== SWIPER JS ===============-->
+    <!--############### SWIPER JS ###############-->
     <script src="/js/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.js"></script>
 
-    <!--=============== EMAIL JS ===============-->
+    <!--############### EMAIL JS ###############-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <!--=============== MAIN JS ===============-->
+    <!--############### MAIN JS ###############-->
     <script src="js/emailjs.js"></script>
     <script src="js/home.js"></script>
     <script src="js/load.js"></script>
