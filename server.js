@@ -18,6 +18,7 @@ import {
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import nodemailer from "nodemailer";
+import stripe from "stripe";
 
 dotenv.config();
 /*########## FIREBASE CONFIG ##########*/
@@ -393,6 +394,36 @@ app.get("/cart", (req, res) => {
 // checkout page
 app.get("/checkout", (req, res) => {
 	res.sendFile("checkout.html", { root: "public" });
+})
+
+// stripe payment
+let stripeGateway = stripe(process.env.STRIPE_SECRET_KEY);
+
+let DOMAIN = process.env.SITE_DOMAIN;
+
+app.post("/stripe-checkout", async (req, res) => {
+	const session = await stripeGateway.checkout.sessions.create({
+		payment_method_types: ["card"],
+		mode: "payment",
+		success_url: `${DOMAIN}/success`,
+		cancel_url: `${DOMAIN}/checkout`,
+		line_items: req.body.items.map(item => {
+			return {
+				price_data: {
+					currency: "usd",
+					product_data: {
+						name: item.name,
+						description: item.shortDes,
+						images: [item.image]
+					},
+					unit_amount: item.price * 100
+				},
+				quantity: item.item
+			}
+		})
+	})
+
+	res.json(session.url);
 })
 
 app.post("/order", (req, res) => {

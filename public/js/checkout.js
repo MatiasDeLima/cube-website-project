@@ -10,24 +10,35 @@ placeOrderButton.addEventListener("click", () => {
     let address = getAddress();
 
     if (address) {
-        fetch("/order", {
+        fetch("/stripe-checkout", {
             method: "POST",
             headers: new Headers({ "Content-Type": "application/json" }),
             body: JSON.stringify({
-                order: JSON.parse(localStorage.cart),
+                items: JSON.parse(localStorage.cart),
                 email: JSON.parse(sessionStorage.user).email,
                 add: address,
             })
         })
         .then(res => res.json())
-        .then(data => {
-            if(data.alert == "your order is placed") {
-                delete localStorage.cart;
-                alert(data.alert, "success");
-            } else {
-                alert(data.alert);
-            }
+        .then(url => {
+            location.href = url;
+            // console.log(url)
+            // if(data.alert == "your order is placed") {
+            //     delete localStorage.cart;
+            //     alert(data.alert, "success");
+            // } else {
+            //     alert(data.alert);
+            // }
+
+
+            // se o pagamento for bem sucedido faz um fetch para enviar email
+            // if(ok) {
+            //     fetch("/order", {
+
+            //     })
+            // }
         })
+        .catch(err => console.log(err))
     }
 })
 
