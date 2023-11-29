@@ -28,6 +28,25 @@
 
     </div>
 
+    <!--==================== ADDRESS ====================-->
+    <section class="adress section">
+        <h2 class="section__title artwork__title section__title-center">
+            <span>Checkout<img src="images/line.svg"></span>
+        </h2>
+
+        <div class="adress__container grid">
+            <div class="form__inputs">
+                <input type="text" placeholder="Enter You Address..."  id="address">
+                <input type="text" placeholder="Enter You Street..."  id="street">
+                <input type="text" placeholder="Enter You City..." id="city">
+                <input type="text" placeholder="Enter You State..." id="state">
+                <input type="text" placeholder="Enter You Pincode..." id="pincode">
+                <input type="text" placeholder="Enter You Landmark..." id="landmark">
+            </div>
+            <span class="form__error"></span>
+        </div>
+    </section>
+
     <!--==================== CART ====================-->
     <section class="cart section">
         <h2 class="section__title artwork__title section__title-center">
@@ -44,35 +63,19 @@
                     $00.00
                 </h3>
 
-                <button onclick="location.href = '/checkout' " class="button checkout__button">Checkout</button>
+                <button class="submit__button button place__order">Place Order</button>
             </div>
         </div>
     </section>
-
-    <section class="adress section">
-        <h2 class="section__title artwork__title section__title-center">
-            <span>Checkout<img src="images/line.svg"></span>
-        </h2>
-
-        <div class="adress__container grid">
-            <div class="form__inputs">
-                <input type="text" placeholder="Enter You Street...">
-                <input type="text" placeholder="Enter You City...">
-                <input type="text" placeholder="Enter You State...">
-                <input type="text" placeholder="Enter You Pincode...">
-                <input type="text" placeholder="Enter You Landmark...">
-            </div>
-        </div>
-    </section>
-
-
 
     <!--==================== FOOTER ====================-->
     <footer class="footer section"></footer>
 
-    <script src="js/cart.js"></script>
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
 </body>
 
 </html>
