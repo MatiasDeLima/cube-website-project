@@ -397,16 +397,17 @@ app.get("/checkout", (req, res) => {
 })
 
 // stripe payment
-let stripeGateway = stripe(process.env.STRIPE_SECRET_KEY);
+let stripeGateway = stripe(process.env.STRIPE_KEY);
 
-let DOMAIN = process.env.SITE_DOMAIN;
+let DOMAIN = process.env.DOMAIN;
 
-app.post("/stripe-checkout", async (req, res) => {
+app.post('/stripe-checkout', async (req, res) => {
+
 	const session = await stripeGateway.checkout.sessions.create({
 		payment_method_types: ["card"],
 		mode: "payment",
-		success_url: `${DOMAIN}/success`,
-		cancel_url: `${DOMAIN}/checkout`,
+		success_url: `${DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}&order=${encodeURI(JSON.stringify(req.body))}`,
+		cancel_url: `${DOMAIN}/checkout?payment_fail=true`,
 		line_items: req.body.items.map(item => {
 			return {
 				price_data: {
@@ -423,11 +424,11 @@ app.post("/stripe-checkout", async (req, res) => {
 		})
 	})
 
-	res.json(session.url);
+	res.json(session.url)
 })
 
-app.post("/order", (req, res) => {
-	const { order, email, add } = req.body
+app.post("/send-email", (req, res) => {
+	const { email, order } = req.body
 
 	let transporter = nodemailer.createTransport({
 		service: "gmail",
@@ -438,7 +439,7 @@ app.post("/order", (req, res) => {
 	})
 
 	const mailOptions = {
-		from: "lucasmlima1516@gmail.com",
+		from: "matiasdelima874@gmail.com",
 		to: email,
 		subject: "Clothing : Order Placed",
 		html: `
@@ -448,7 +449,7 @@ app.post("/order", (req, res) => {
 					<meta charset="UTF-8">
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<title>Document</title>
-				
+
 					<style>
 						body {
 							min-height: 90vh;
@@ -458,7 +459,7 @@ app.post("/order", (req, res) => {
 							justify-content: center;
 							align-items: center;
 						}
-				
+
 						.heading {
 							text-align: center;
 							font-size: 40px;
@@ -468,11 +469,11 @@ app.post("/order", (req, res) => {
 							margin: 30px auto 60px;
 							text-transform: capitalize;
 						}
-				
+
 						.heading span {
 							font-weight: 300;
 						}
-				
+
 						.button {
 							width: 200px;
 							height: 50px;
@@ -495,21 +496,59 @@ app.post("/order", (req, res) => {
 		`
 	}
 
-	let docName = email + Math.floor(Math.random() * 76547637592143452);
-	const orders = collection(db, "orders");
+	transporter.sendMail(mailOptions, (err, info) => {
+		if (err) {
+			console.error(err);
+			res.status(500).json({ alert: "Oops! Something went wrong. Try again." });
+		} else {
+			console.log("Email sent:", info.response);
+			res.json({ alert: "Email sent successfully!" });
+		}
+	});
+})
 
-	setDoc(doc(orders, docName), req.body)
-		.then(data => {
-			transporter.sendMail(mailOptions, (err, info) => {
-				if (err) {
-					res.json({ "alert": "Opps! its seems like some err occured. Try again" });
-				} else {
-					res.json({ "alert": "your order is placed!" });
-				}
+app.get('/success', async (req, res) => {
+	let { order, session_id } = req.query;
+	order = decodeURI(order);
+
+	try {
+		const session = await stripeGateway.checkout.sessions.retrieve(session_id);
+		// const customer = await stripeGateway.customers.retrieve(session.customer);
+
+		const customer = session.customer_details.email;
+
+		let date = new Date();
+
+		let orders_collection = collection(db, "orders");
+		let docName = `${customer.email}-order-${date.getTime()}`;
+
+		setDoc(doc(orders_collection, docName), JSON.parse(order))
+			.then(data => {
+				// res.redirect('/checkout?payment=done')
+				fetch("http://localhost:5000/send-email", {
+					method: "POST",
+					headers: new Headers({ "Content-Type": "application/json" }),
+					body: JSON.stringify({
+						email: customer,
+						order: JSON.parse(order),
+					}),
+				})
+					.then((emailRes) => emailRes.json())
+					.then((emailData) => {
+						console.log(emailData);
+						res.redirect("/checkout?payment=done");
+					})
+					.catch((emailErr) => {
+						console.error(emailErr);
+						// res.redirect("/404");
+					});
 			})
 
-			// res.json("Done");
-		})
+	} catch (err) {
+		console.log(err)
+		res.json(err);
+		// res.redirect("/404");
+	}
 })
 
 // 404 page router
