@@ -63,3 +63,20 @@ sr.reveal(".swiper-home, .customers__container, .contact__container, .newsletter
 sr.reveal(".category__data, .footer__content, .collection__card", { interval: 100 });
 sr.reveal(".about__data, .artwork__image", { origin: "left" });
 sr.reveal(".about__image, .artwork__data", { origin: "right" });
+
+/*############### CUSTOMER MODAL ###############*/
+const modalViews = document.getElementById("customer-modal"),
+	  modalButton = document.getElementById("customer-button"),
+	  modalClose = document.getElementById("customer-modal-close")
+
+if(modalButton) {
+	modalButton.addEventListener("click", () => {
+		modalViews.classList.add("show-modal");
+	})
+}
+
+if(modalClose) {
+	modalClose.addEventListener("click", () => {
+		modalViews.classList.remove("show-modal");
+	})
+}

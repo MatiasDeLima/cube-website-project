@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/cdn.jsdelivr.net_npm_swiper@10.2.0_swiper-bundle.min.css">
 
     <!--############### CSS ###############-->
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/load.css">
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/index.css">
@@ -24,7 +25,7 @@
 
 <body>
     <!--#################### LOAD ####################-->
-    <div class="loading__page" id="loading-page">
+    <!-- <div class="loading__page" id="loading-page">
         <div class="loading__container">
             <div class="circular__progress">
                 <img src="images/decoration-star.svg" alt="loading image">
@@ -32,7 +33,7 @@
 
             <span class="loading__number">0%</span>
         </div>
-    </div>
+    </div> -->
     
     <!--#################### HEADER ####################-->
     <header class="header" id="header"></header>
@@ -399,6 +400,31 @@
                 <span>Customers<img src="images/line.svg"></span>
             </h2>
 
+            <div class="customers__modal" id="customer-modal">
+                <div class="customers__modal-content">
+                    <div class="customer__modal-close" id="customer-modal-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+
+                    <h3 class="customers__modal-title">Add a Review</h3>
+
+                    <div class="customers__modal-inputs">
+                        <div class="customer__input">
+                            <i class="ri-pen-nib-line"></i>
+                            <input type="text" placeholder="Enter a title" class="inter__input">
+                        </div>
+
+                        <div class="customer__input">
+                            <textarea name="" id="" cols="30" rows="10" class="inter__input customer__textarea" placeholder="Enter a review text"></textarea>
+                        </div>
+                    </div>
+
+                    <span class="customer__error">An Error occured!</span>
+
+                    <button class="button">Send Review</button>
+                </div>
+            </div>
+
             <div class="swiper customers__container container">
                 <div class="swiper-wrapper">
                     <article class="customers__card swiper-slide">
@@ -571,6 +597,8 @@
                 </div>
 
                 <div class="swiper-pagination customer__pagination"></div>
+
+                <button class="button button-center" id="customer-button">Add review</button>
             </div>
         </section>
 

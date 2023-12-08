@@ -1,0 +1,74 @@
+.customers__modal {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-glass-color);
+  padding: 2rem 1rem;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 10000;
+}
+
+.customers__modal-content {
+  position: relative;
+  background-color: var(--container-color);
+  padding: 3rem 1.5rem 2.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+}
+
+.customers__modal-title {
+  color: var(--white-color);
+  margin-bottom: 2rem;
+}
+
+.customer__modal-close {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--white-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.customer__input {
+  padding: 0.8rem 1.25rem;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.inter__input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+}
+
+.customer__textarea {
+  padding: 0;
+  resize: none;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+.customers__modal-inputs {
+  display: grid;
+  row-gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.customer__error {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}

@@ -55,8 +55,8 @@ const createHeader = () => {
 					</div>
 				</div>
 
-				<a href="#" class="contact__button active-desktop">
-					Contact us
+				<a href="/signup" class="contact__button active-desktop">
+					Register
 				</a>
 			</div>
 		</nav>

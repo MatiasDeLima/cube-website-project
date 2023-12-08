@@ -516,11 +516,14 @@ app.get('/success', async (req, res) => {
 		// const customer = await stripeGateway.customers.retrieve(session.customer);
 
 		const customer = session.customer_details.email;
+		console.log(customer);
 
 		let date = new Date();
 
 		let orders_collection = collection(db, "orders");
 		let docName = `${customer.email}-order-${date.getTime()}`;
+
+		console.log(docName)
 
 		setDoc(doc(orders_collection, docName), JSON.parse(order))
 			.then(data => {
@@ -529,7 +532,7 @@ app.get('/success', async (req, res) => {
 					method: "POST",
 					headers: new Headers({ "Content-Type": "application/json" }),
 					body: JSON.stringify({
-						email: customer,
+						email: customer.email,
 						order: JSON.parse(order),
 					}),
 				})
