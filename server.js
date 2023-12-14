@@ -82,7 +82,7 @@ app.get("/s3url", (req, res) => {
 			console.error("Erro ao gerar a URL:", error);
 			res.json("Error ao gerar a URL")
 		});
-});
+});  
 
 /*########## ROUTES ##########*/
 // home page router
